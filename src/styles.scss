@@ -1,0 +1,213 @@
+@import 'scss/variables';
+
+* {
+    font-family: $style1;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+button {
+    text-transform: uppercase;
+}
+
+::-webkit-scrollbar {
+    width: 14px;
+}
+
+::-webkit-scrollbar-track {
+    background: $dark;
+}
+
+::-webkit-scrollbar-thumb {
+    background: $poke2;
+    border: 2px solid $dark;
+    margin: 2px;
+}
+
+.app-container {
+    margin-left: 10rem;
+    margin-right: 10rem;
+    margin-top: 5rem;
+    margin-bottom: 2rem;
+}
+
+#navbar-component {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    z-index: 9999;
+}
+
+
+
+html {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    background-image: linear-gradient(20deg, $secondary, rgb(255, 183, 0));
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: white;
+}
+
+header {
+    font-size: 1.5em;
+    font-weight: 100;
+    min-height: 30vh;
+    letter-spacing: 5px;
+}
+
+.text-center {
+    margin: 0 auto;
+    text-align: center;
+}
+
+
+footer {
+    min-height: 100vh;
+}
+
+.container {
+    margin-top: 2%;
+    margin-left: 3%;
+    margin-right: 3%;
+    margin-bottom: 1%;
+}
+
+.btn {
+    width: 5rem;
+    padding: 0.5rem;
+    border-radius: 5px;
+    border: 0px;
+    letter-spacing: 1px;
+    box-shadow: 0px 2px 6px $softDark;
+    outline: none;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-primary {
+    background-color: rgb(52, 59, 255);
+    color: white;
+
+    &:hover {
+        filter: brightness(1.1);
+        color: rgb(211, 211, 211);
+    }
+}
+
+.list {
+    list-style: none;
+    padding: 2rem;
+    background: $dark;
+    color: white;
+}
+
+.black--text {
+    color: $dark;
+}
+
+.white--text {
+    color: white;
+}
+
+.javascript--text {
+    color: $primary;
+}
+
+.js {
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+}
+
+.col {
+    justify-self: center;
+}
+
+.row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: minmax(10rem, auto);
+}
+
+.row::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+
+.d-flex {
+    display: flex;
+}
+
+.d-block {
+    display: block;
+}
+
+.justify-center {
+    text-align: center;
+    justify-items: center;
+    margin: 0 auto;
+}
+
+.justify-between {
+    justify-content: space-between;
+}
+
+.mt-1 {
+    margin-top: 10px;
+}
+
+.mt-2 {
+    margin-top: 20px;
+}
+
+.mt-3 {
+    margin-top: 30px;
+}
+
+.mt-4 {
+    margin-top: 40px;
+}
+
+.mt-5 {
+    margin-top: 50px;
+}
+
+.col {
+    min-width: 50%;
+}
+
+.col-1 {width: 8.33%;}
+.col-2 {width: 16.66%;}
+.col-3 {width: 25%;}
+.col-4 {width: 33.33%;}
+.col-5 {width: 41.66%;}
+.col-6 {width: 50%;}
+.col-7 {width: 58.33%;}
+.col-8 {width: 66.66%;}
+.col-9 {width: 75%;}
+.col-10 {width: 83.33%;}
+.col-11 {width: 91.66%;}
+.col-12 {width: 100%;}
+
+
+
+.fade {
+    animation: fade 1s ease-in-out;
+}
+
+@keyframes fade {
+    from {
+        opacity: 0
+    }
+    to {
+        opacity: 1
+    }
+}
+
