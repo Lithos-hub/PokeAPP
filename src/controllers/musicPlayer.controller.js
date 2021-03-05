@@ -20,6 +20,8 @@ export default () => {
 
     // Click options when press the play button
     playBtn.addEventListener('click', () => {
+        playBtn.style.boxShadow = "inset 5px 0px 7px black, inset -5px 0px 7px black"
+        pauseBtn.style.boxShadow = "inset 5px 0px 7px black, inset -5px 0px 7px black"
         pauseBtn.style.display = "block"
         playBtn.style.display = "none"
         music.volume = 0.5;
@@ -29,6 +31,8 @@ export default () => {
     
     // Click options when press the pause button
     pauseBtn.addEventListener('click', () => {
+        playBtn.style.boxShadow = "none"
+        pauseBtn.style.boxShadow = "none"
         pauseBtn.style.display = "none"
         playBtn.style.display = "block"
         if(music.play()){

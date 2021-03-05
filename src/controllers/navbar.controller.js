@@ -2,7 +2,7 @@ import navbar from "../components/navbar/navbar.html"
 import '../components/navbar/styles.scss'
 
 // Images imports
-import BRAND from "../assets/img/js.png";
+import BRAND from "../assets/img/app-logo.png";
 import WEBPACKLOGO from "../assets/img/webpack.png";
 
 export default () => {

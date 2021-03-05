@@ -53,7 +53,7 @@ export default () => {
     
     const majorVersion = 1
     const minorVersion = 0
-    const patch = 0
+    const patch = 1
         
     version.insertAdjacentText('afterbegin', `v. ${majorVersion}.${minorVersion}.${patch}`)
 

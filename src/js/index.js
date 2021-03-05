@@ -1,10 +1,7 @@
 import '../styles.scss'
 
 import { router } from '../router/index.routes'
-
-if (process.env.NODE_ENV !== 'production') {
-    console.log('Looks like we are in development mode!');
-  }
+// import {pages, components} from "../controllers/index.js";
 
 router(window.location.hash)
 

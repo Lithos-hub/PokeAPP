@@ -4,6 +4,7 @@ import notfound from './404.controller'
 
 import Navbar from './navbar.controller'
 import MusicPlayer from './musicPlayer.controller'
+import Loader from './loader.controller'
 
 const pages = {
     home: Home,
@@ -13,7 +14,8 @@ const pages = {
 
 const components = {
     navbar: Navbar,
-    musicplayer: MusicPlayer
+    musicplayer: MusicPlayer,
+    loader: Loader
 }
 
 export { pages, components };

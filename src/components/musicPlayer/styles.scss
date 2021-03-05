@@ -13,7 +13,7 @@
     padding: 5px;
     width: 100%;
     height: 4rem;
-    background-color: $poke3;
+    background-image: linear-gradient(to bottom, white 5%,#408eaa 10%,  #66a7a7 20%, #afe9fa 50%, #1c5c5e 2%, #123649 5%, $dark);
     justify-content: space-between;
 
 }
@@ -28,6 +28,8 @@
     margin: 5px;
     outline: none;
     transition: $transFast;
+    background-image: linear-gradient(to bottom, rgb(202, 251, 255) 10%,  #aadfdf 30%, #dcf7ff 50%, #123649);
+    
 
     &:hover {
         background: $dark;
@@ -41,8 +43,6 @@
     height: 100%;
 }
 
-.music-player-text {
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
+.button-clicked {
+    box-shadow: inset 5px 0px 7px $dark, inset -5px 0px 7px $dark;
 }

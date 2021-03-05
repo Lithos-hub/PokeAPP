@@ -1,5 +1,5 @@
 import view from "../views/pokeapi/api.html";
-import "../views/pokeapi/styles.scss"
+import "../views/pokeapi/styles.scss";
 
 // Backgrounds card
 import backgroundBUG from "../assets/img/bug.jpg";
@@ -42,36 +42,38 @@ import iconROCK from "../assets/icons/rock.svg";
 import iconSTEEL from "../assets/icons/steel.svg";
 import iconWATER from "../assets/icons/water.svg";
 
-
 const getPokes = async (id) => {
+
     try {
         const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
+
         return await res.json();     
     } catch (error) {
         console.log(error)
-    } 
+    }
+    
+    
 }
+
 
 export default async () => {
     // Create the view
-    const divElement = document.createElement('div')
+    const divElement = document.createElement('div');
     divElement.innerHTML = view;
-
-
+    
     // Assign the start and end points
     let start = 1
     let end = 150
     
-    // Create the array where pokemon will be storaged
+    // Create the array where pokemons will be storaged
     const pokeArr = []
     
     // for loop to get each pokemon with an id
     for(let id = start; id <= end; id++) {
-
         const pokes = await getPokes(id);
         pokeArr.push(pokes)
-        
     }
+
     
     // assign the pokeList const to #pokeList element
     const pokeList = divElement.querySelector('#pokeList')
@@ -79,7 +81,6 @@ export default async () => {
     // Verify that the array has been corrected created
     console.log(pokeArr)
     
-
     // Array for the types
     const typesList = []
 
@@ -167,48 +168,45 @@ export default async () => {
                 background = DEFAULT;
         }
 
-        pokeList.innerHTML += `
-        <div class="col col-4 margin-cols">
+            pokeList.innerHTML += `
+            <div class="col col-4 margin-cols">
             <div class="card" style="background-image: url(${background}); background-size: 100%; background-position: center; background-attachment: fixed">
-                <div class="card-id">${poke.id}</div>
-                    <div class="card-img">
-                        <img src="${poke.sprites.other.dream_world.front_default}" width="150">
+            <div class="card-id">${poke.id}</div>
+            <div class="card-img">
+            <img src="${poke.sprites.other.dream_world.front_default}" width="150">
                     </div>
                     <div class="card-body">
-                            <div class="card-title mb-5">
-                                ${poke.name.charAt(0).toUpperCase() + poke.name.slice(1) }
-                            </div>
-                            <ul style="list-style: none">
-                            <li>
-                            Main type:
-                            </li>
-                            <li>
-                            <img src="${icon}" width="30" height="30" class="mt-1">
-                            </li>
-                            <li class="mt-2">
-                            Weight: ${poke.weight}
-                            </li>
-                            <li>
-                            Base experience: ${poke.base_experience}
-                            </li>
-                        
-                            </ul>
+                    <div class="card-title mb-5">
+                    ${poke.name.charAt(0).toUpperCase() + poke.name.slice(1) }
                     </div>
-                </div>
-            </div>
-        </div>
-        `;        
-        
+                    <ul style="list-style: none">
+                    <li>
+                    Main type:
+                    </li>
+                    <li>
+                    <img src="${icon}" width="30" height="30" class="mt-1">
+                    </li>
+                    <li class="mt-2">
+                    Weight: ${poke.weight}
+                    </li>
+                    <li>
+                    Base experience: ${poke.base_experience}
+                    </li>
+                    
+                    </ul>
+                    </div>
+                    </div>
+                    </div>
+                    </div>
+                    `;
+
     })
-    
-    
     
     // console.log(typesList)
     
     
 
-    
-
-    
     return divElement;
+
+
 };
