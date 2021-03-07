@@ -1,7 +1,7 @@
 import view from "../views/pokeapi/api.html";
 import "../views/pokeapi/styles.scss";
 
-// Backgrounds card
+// Backgrounds cards
 import backgroundBUG from "../assets/img/bug.jpg";
 import backgroundDARK from "../assets/img/dark.jpg";
 import backgroundDRAGON from "../assets/img/dragon.jpg";
@@ -19,10 +19,10 @@ import backgroundPOISON from "../assets/img/poison.jpg";
 import backgroundPSYCHIC from "../assets/img/psychic.jpg";
 import backgroundROCK from "../assets/img/rock.jpg";
 import backgroundSTEEL from "../assets/img/steel.jpg";
-import backgroundWATER from "../assets/img/water.jpg";
-import DEFAULT from "../assets/img/unknown.jpg";
+import backgroundWATER from "../assets/img/water2.jpg";
+import nobackground from "../assets/img/nobackground.jpg";
 
-// Type icons
+// Types icons
 import iconBUG from "../assets/icons/bug.svg";
 import iconDARK from "../assets/icons/dark.svg";
 import iconDRAGON from "../assets/icons/dragon.svg";
@@ -41,55 +41,145 @@ import iconPSYCHIC from "../assets/icons/psychic.svg";
 import iconROCK from "../assets/icons/rock.svg";
 import iconSTEEL from "../assets/icons/steel.svg";
 import iconWATER from "../assets/icons/water.svg";
+import noicon from "../assets/icons/noicon.png";
 
-const getPokes = async (id) => {
-
+const getPokesByID = async (id) => {
     try {
         const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
-
         return await res.json();     
     } catch (error) {
         console.log(error)
     }
-    
-    
+}
+
+const getPokesByNAME = async (name) => {
+    try {
+        const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${name}`);
+        return await res.json();     
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+
+const getPokesSpecies = async (name) => {
+    try {
+        const res = await fetch(`https://pokeapi.co/api/v2/pokemon-species/${name}`);
+        return await res.json();     
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+const getPokesEvoChains = async (id) => {
+    try {
+        const res = await fetch(`https://pokeapi.co/api/v2/evolution-chain/${id}`);
+        return await res.json();     
+    } catch (error) {
+        console.log(error)
+    }
 }
 
 
 export default async () => {
-    // Create the view
     const divElement = document.createElement('div');
     divElement.innerHTML = view;
     
-    // Assign the start and end points
+    const pokeList = divElement.querySelector('#pokeList')
+
     let start = 1
     let end = 150
     
-    // Create the array where pokemons will be storaged
     const pokeArr = []
+    const speciesArr = []
+    const evosArr = []
     
-    // for loop to get each pokemon with an id
+    // for loops to get info (each pokemon, each specie, each evolution chain, etc)
+
     for(let id = start; id <= end; id++) {
-        const pokes = await getPokes(id);
+        const pokes = await getPokesByID(id);
         pokeArr.push(pokes)
     }
 
+    for(let pokemon of pokeArr) {
+        const species = await getPokesSpecies(pokemon.name)
+        speciesArr.push(species)
+
+    }
+
     
-    // assign the pokeList const to #pokeList element
-    const pokeList = divElement.querySelector('#pokeList')
+    function escapeRegExp(string) {
+        return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); 
+    }
     
-    // Verify that the array has been corrected created
+    const evoChainsArr = speciesArr.map((specie) => {
+        let urlstring = "https://pokeapi.co/api/v2/evolution-chain/"
+        let reg = new RegExp(escapeRegExp(urlstring), 'g')
+        return { 
+            pokename: specie.name, evochain: specie.evolution_chain.url, evochain_id: parseInt(specie.evolution_chain.url.replace(reg, '').slice(0, -1))
+        } 
+    });
+    
+    for(let item of evoChainsArr) {
+        const evochains = await getPokesEvoChains(item.evochain_id)
+        evosArr.push(evochains.chain)
+    }
+
+    const evolution_chains = evosArr.map((evochain) => {
+        for(let evos of evochain.evolves_to) {
+            let next_evo = evos;
+
+            return {
+                pokemon_name: evochain.species.name,
+                next_evo: next_evo.species.name
+            }
+        }
+    })
+
+    console.log(evolution_chains)
+
+
+
+    // for(let evo_info of evoChainsArr) {
+        
+    //     for(let specie of speciesArr){
+    //         if(evo_info.pokename === specie.name) {
+    //             const chain = await getPokesEvoChains(evo_info.evochain_id)
+    //             evosArr.push(chain)
+    //         }
+    //         return;
+    //     }
+
+    //     return;
+
+    // }
+
+
+
+
     console.log(pokeArr)
+
+    console.log(speciesArr)
+
+    console.log(evoChainsArr)
+
+    console.log(evosArr)
+
+    // const evolves_from = speciesArr.map((evo) => {
+    //     return { baseform: evo.name, evolves_from: evo.evolves_from_species, evolves_to: ''}
+    // })
+
+    // speciesArr.forEach((pokemon, pokemonID) => {
+
+    // });
+
     
-    // Array for the types
-    const typesList = []
+    pokeArr.forEach((poke) => {
 
-    // for loop to get each pokemon information and create an html element with that info
-    pokeArr.forEach(poke => {
-        typesList.push(poke.types[0].type.name)
-
-        let background = ''
-        let icon = ''
+        let background = '';
+        let second_background = '';
+        let icon = '';
+        let second_icon = '';
 
         switch(poke.types[0].type.name) {
             case "grass":
@@ -165,46 +255,163 @@ export default async () => {
                 icon = iconELECTRIC;
                 break;
             default:
-                background = DEFAULT;
+                background = nobackground;
         }
 
+        if(poke.types[1] !== undefined) {
+                switch(poke.types[1].type.name) {
+                    case "grass":
+                        second_background = backgroundGRASS;
+                        second_icon = iconGRASS;
+                        break;
+                    case "fire":
+                        second_background = backgroundFIRE;
+                        second_icon = iconFIRE;
+                        break;
+                    case "water":
+                        second_background = backgroundWATER;
+                        second_icon = iconWATER;
+                        break;
+                    case "bug":
+                        second_background = backgroundBUG;
+                        second_icon = iconBUG;
+                        break;
+                    case "normal":
+                        second_background = backgroundNORMAL;
+                        second_icon = iconNORMAL;
+                        break;
+                    case "dark":
+                        second_background = backgroundDARK;
+                        second_icon = iconDARK;
+                        break;
+                    case "dragon":
+                        second_background = backgroundDRAGON;
+                        second_icon = iconDRAGON;
+                        break;
+                    case "fairy":
+                        second_background = backgroundFAIRY;
+                        second_icon = iconFAIRY;
+                        break;
+                    case "fighting":
+                        second_background = backgroundFIGHTING;
+                        second_icon = iconFIGHTING;
+                        break;
+                    case "ghost":
+                        second_background = backgroundGHOST;
+                        second_icon = iconGHOST;
+                        break;
+                    case "ground":
+                        second_background = backgroundGROUND;
+                        second_icon = iconGROUND;
+                        break;
+                    case "ice":
+                        second_background = backgroundICE;
+                        second_icon = iconICE;
+                        break;
+                    case "poison":
+                        second_background = backgroundPOISON;
+                        second_icon = iconPOISON;
+                        break;
+                    case "psychic":
+                        second_background = backgroundPSYCHIC;
+                        second_icon = iconPSYCHIC;
+                        break;
+                    case "rock":
+                        second_background = backgroundROCK;
+                        second_icon = iconROCK;
+                        break;
+                    case "steel":
+                        second_background = backgroundSTEEL;
+                        second_icon = iconSTEEL;
+                        break;
+                    case "flying":
+                        second_background = backgroundFLYING;
+                        second_icon = iconFLYING;
+                        break;
+                    case "electric":
+                        second_background = backgroundELECTRIC;
+                        second_icon = iconELECTRIC;
+                        break;
+                    default:
+                        background = nobackground;
+                }
+        } else {
+            second_background = nobackground;
+            second_icon = noicon;
+        }
             pokeList.innerHTML += `
             <div class="col col-4 margin-cols">
-            <div class="card" style="background-image: url(${background}); background-size: 100%; background-position: center; background-attachment: fixed">
-            <div class="card-id">${poke.id}</div>
-            <div class="card-img">
-            <img src="${poke.sprites.other.dream_world.front_default}" width="150">
+                <div class="card-wrapper">
+                    <div class="card-inner">
+
+                            <div class="card" style="background-image: url(${background}); background-size: cover; background-position: center; background-repeat: no-repeat;">
+                                <div class="card-id">
+                                ${poke.id}
+                                </div>
+                                    <div class="card-img">
+                                        <img src="${poke.sprites.other.dream_world.front_default}" width="100%" height="150px" class="mt-3">
+                                    </div>
+                                        <div class="card-body">
+                                            <div class="card-title mb-5">
+                                                ${poke.name.charAt(0).toUpperCase() + poke.name.slice(1) }
+                                            </div>
+                                                    <ul style="list-style: none">
+                                                    <li>
+                                                    Main type:
+                                                    </li>
+                                                    <li>
+                                                        <img src="${icon}" width="30" height="30" class="mt-1">
+                                                        <p class="text-center">${poke.types[0].type.name.charAt(0).toUpperCase() + poke.types[0].type.name.slice(1)}</p>
+                                                    </li>
+                                                    <li class="mt-2">
+                                                        Weight: ${poke.weight}
+                                                    </li>
+                                                    <li>
+                                                        Base experience: ${poke.base_experience}
+                                                    </li>
+                                        
+                                                    </ul>
+                                        </div>
+ 
+                            </div>
+
+                            <div class="card-back" style="background-image: url(${second_background}); background-size: cover; background-position: center; background-repeat: no-repeat;">
+                                <div class="card-back-title">
+                                ${poke.name.charAt(0).toUpperCase() + poke.name.slice(1) }
+                                </div>
+                                <div class="card-back-body">
+                                    <div class="evolutions-row">
+
+                                    </div>
+                                        <h3 class="text-center mt-3">Second type:</h3>
+                                        <img class="text-center mt-1" src="${second_icon}" width="30" height="30" class="mt-1">
+                                        <p class="text-center mt-1">${poke.types[1] !== undefined ? poke.types[1].type.name.charAt(0).toUpperCase() + poke.types[1].type.name.slice(1) : 'No second type'}</p>
+                                </div>
+                            </div>
                     </div>
-                    <div class="card-body">
-                    <div class="card-title mb-5">
-                    ${poke.name.charAt(0).toUpperCase() + poke.name.slice(1) }
-                    </div>
-                    <ul style="list-style: none">
-                    <li>
-                    Main type:
-                    </li>
-                    <li>
-                    <img src="${icon}" width="30" height="30" class="mt-1">
-                    </li>
-                    <li class="mt-2">
-                    Weight: ${poke.weight}
-                    </li>
-                    <li>
-                    Base experience: ${poke.base_experience}
-                    </li>
-                    
-                    </ul>
-                    </div>
-                    </div>
-                    </div>
-                    </div>
-                    `;
+                </div>
+            </div>
+        `;
 
     })
+
+    /*
+
+    <div class="evolutions-row">
+            <div class="col-4 text-right">
+            <img class="evo-img" src="${poke.sprites.versions['generation-v']['black-white'].animated.front_default}" width="auto" height="auto">
+            </div>
+            <div class="col-4 text-center">
+                <i class="fas fa-arrow-right card-back-arrow"></i>
+            </div>
+            <div class="col-4 text-left">
+            <img class="evo-img" src="${poke.sprites.versions['generation-v']['black-white'].animated.front_default}" width="auto" height="auto">
+            </div>
+    </div>
+
+    */
     
-    // console.log(typesList)
-    
-    
+
 
     return divElement;
 

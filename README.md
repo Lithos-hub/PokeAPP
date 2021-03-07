@@ -10,10 +10,15 @@ More features will be included soon with new versions.
 
 Changelog
 
-Version 1.0.0
-* First version with the first generation available to show.
+Version 1.1.0
+
+* Added flip effect on cards.
+* Dynamic backgrounds on cards (front and back views) depending on the type.
 
 Version 1.0.1
 * Added custom loader in /app section.
 * New favicon and logo.
 * New aesthetic on the music player component.
+
+Version 1.0.0
+* First version with the first generation available to show.
