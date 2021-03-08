@@ -10,6 +10,14 @@ More features will be included soon with new versions.
 
 Changelog
 
+Version 1.2.0
+
+* Responsive view in the start page.
+* Added dynamic icons colors.
+* Added dynamic icons depending on the secondary type in the back side of the cards.
+* Each card has the pokémon ID in the corner with the format #XXX.
+* The weight information was fixed (each weight is now divided by 10 in order to get the weight in KG)
+
 Version 1.1.0
 
 * Added flip effect on cards.

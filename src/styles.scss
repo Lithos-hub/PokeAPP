@@ -169,24 +169,18 @@ footer {
     justify-content: space-between;
 }
 
-.mt-1 {
-    margin-top: 10px;
+
+
+@for $i from 1 to 5 {
+.mt-#{$i} {
+    margin-top: (10 * $i) * 1px;
+    }
 }
 
-.mt-2 {
-    margin-top: 20px;
-}
-
-.mt-3 {
-    margin-top: 30px;
-}
-
-.mt-4 {
-    margin-top: 40px;
-}
-
-.mt-5 {
-    margin-top: 50px;
+@for $i from 1 to 5 {
+.mb-#{$i} {
+    margin-bottom: (10 * $i) * 1px;
+    }
 }
 
 .col {
