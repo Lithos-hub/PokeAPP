@@ -1,38 +1,81 @@
 @import '../../scss/variables';
 
 .loader-container {
-    background-image: linear-gradient(28deg, $poke3, $dark);
-    box-shadow: 0px 10px 15px black;
-    position: absolute;
+    position: fixed;
     width: 100%;
     height: 100%;
-    top: 0;
-    left: 0;
-    margin: 0 auto;
-    letter-spacing: 10px;
-    font-size: 1.5em;
-    letter-spacing: 10px;
-    text-align: center;
-    border-radius: 10px;
-    font-weight: 100;
+    top: 25%;
+    left: 50%;
+}
 
+.inner-container {
+    top: 20%;
+    left: -50%;
+    width: 35rem;
+    height: 35rem;
+    margin: 0 auto;
+    position: relative;
+    justify-content: center;
+    justify-items: center;
+    text-align: center;
 }
 
 h1 {
-    margin-top: 20%;
-}
-
-.type-icon {
-    border-radius: 100%;
-    height: 4em;
-    width: 4em;
+    color: $dark;
+    font-weight: 100;
+    text-align: center;
+    letter-spacing: 5px;
+    font-size: 2em;
     margin: 0 auto;
 }
+
+.small {
+    color: $poke3;
+    font-size: 0.5em;
+    letter-spacing: 0px;
+}
+
+.spinner-a{
+    position: absolute;
+    animation: orbit_A 2s ease-in-out infinite;
+}
+.spinner-b{
+    position: absolute;
+    animation: orbit_B 2s ease-in-out infinite;
+}
+.spinner-c{
+    position: absolute;
+    animation: orbit_C 2s ease-in-out infinite;
+}
+.spinner-d{
+    position: absolute;
+    animation: orbit_D 2s ease-in-out infinite;
+}
+
+@keyframes orbit_A{
+    from { -webkit-transform: rotate(-90deg) translateX(200px) rotate(0deg); }
+    to   { -webkit-transform: rotate(270deg) translateX(200px) rotate(-360deg); }
+}
+@keyframes orbit_B{
+    from { -webkit-transform: rotate(0deg) translateX(200px) rotate(0deg); }
+    to   { -webkit-transform: rotate(360deg) translateX(200px) rotate(-360deg); }
+}
+@keyframes orbit_C{
+    from { -webkit-transform: rotate(90deg) translateX(200px) rotate(0deg); }
+    to   { -webkit-transform: rotate(450deg) translateX(200px) rotate(-360deg); }
+}
+@keyframes orbit_D{
+    from { -webkit-transform: rotate(180deg) translateX(200px) rotate(0deg); }
+    to   { -webkit-transform: rotate(540deg) translateX(200px) rotate(-360deg); }
+}
+
+
+
 
 .spinner img {
     width: 3em;
     height: 3em;
-    animation: rotate 2s linear infinite;
+    animation: rotate 2s ease-in-out infinite alternate-reverse;
 }
 
 @keyframes rotate {
@@ -47,4 +90,49 @@ h1 {
 .spinners-row {
     margin: 0 auto;
     justify-content: center;
+}
+
+.pikachu-flying img {
+    position: fixed;
+    width: 120px;
+    height: auto;
+    animation: flying 20s linear infinite;
+
+}
+
+@keyframes flying {
+    0% {
+        transform: translate(-100px, 50px)
+    }
+    10% {
+        transform: translate(200px, 150px)
+    }
+    20% {
+        transform: translate(400px, 250px)
+    }
+    30% {
+        transform: translate(600px, 150px)
+    }
+    40% {
+        transform: translate(800px, 50px)
+    }
+    50% {
+        transform: translate(1000px, 150px)
+    }
+    60% {
+        transform: translate(1200px, 250px)
+    }
+    70% {
+        transform: translate(1400px, 350px)
+    }
+    80% {
+        transform: translate(1600px, 250px)
+    }
+    90% {
+        transform: translate(1800px, 150px)
+    }
+    100% {
+        transform: translate(2000px, 50px)
+    }
+
 }

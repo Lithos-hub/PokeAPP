@@ -10,6 +10,12 @@ More features will be included soon with new versions.
 
 Changelog
 
+Version 1.3.0
+
+* All generations are now availables.
+* New loading animation when each get-generation button is clicked.
+* The back side of the cards has now new features: the pokemon sprite, a description and the stats (HP, ATTACK, DEFENSE, SPECIAL-ATTACK, SPECIAL-DEFENSE).
+
 Version 1.2.0
 
 * Responsive view in the start page.

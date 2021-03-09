@@ -169,6 +169,10 @@ footer {
     justify-content: space-between;
 }
 
+.space-around {
+    justify-content: space-around;
+}
+
 
 
 @for $i from 1 to 5 {

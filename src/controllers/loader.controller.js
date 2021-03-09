@@ -1,6 +1,8 @@
 import loader from "../components/loader/loader.html"
 import "../components/loader/styles.scss"
 
+import PIKACHU from "../assets/img/pikachu-balloons.png";
+
 import POKEBALL_a from "../assets/img/pokeball.png";
 import POKEBALL_b from "../assets/img/pokeball.png";
 import POKEBALL_c from "../assets/img/pokeball.png";
@@ -20,6 +22,7 @@ export default () => {
     pokeball_c.src = POKEBALL_c;
     pokeball_d.src = POKEBALL_d;
 
+
     const spinner_a = loaderDiv.querySelector('.spinner-a');
     spinner_a.appendChild(pokeball_a)
 
@@ -31,6 +34,12 @@ export default () => {
     
     const spinner_d = loaderDiv.querySelector('.spinner-d');
     spinner_d.appendChild(pokeball_d)
+
+    const pikaimg = new Image();
+    pikaimg.src = PIKACHU;
+
+    const pikadiv = loaderDiv.querySelector('.pikachu-flying');
+    pikadiv.appendChild(pikaimg);
     
 
 

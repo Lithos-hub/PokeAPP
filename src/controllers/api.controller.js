@@ -43,6 +43,46 @@ import iconSTEEL from "../assets/icons/steel.svg";
 import iconWATER from "../assets/icons/water.svg";
 import noicon from "../assets/icons/noicon.png";
 
+// Import components
+import { components } from "../controllers/index.js"
+
+// Loader
+const loaderComponent = document.querySelector("#loaderDIV")
+
+function showLoader() {
+    loaderComponent.appendChild(components.loader())
+}
+
+function hideLoader() {
+    loaderComponent.innerHTML = '';
+}
+
+const begin_first_gen = 1
+const end_fist_gen = 151
+
+const begin_second_gen = 152
+const end_second_gen = 251
+
+const begin_third_gen = 252
+const end_third_gen = 386
+
+const begin_fourth_gen = 387
+const end_fourth_gen = 493
+
+const begin_fifth_gen = 494
+const end_fifth_gen = 649
+
+const begin_sixth_gen = 650
+const end_sixth_gen = 721
+
+const begin_seventh_gen = 722
+const end_seventh_gen = 809
+
+const begin_eighth_gen = 810
+const end_eighth_gen = 893
+
+
+
 const getPokesByID = async (id) => {
     try {
         const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
@@ -52,28 +92,9 @@ const getPokesByID = async (id) => {
     }
 }
 
-const getPokesByNAME = async (name) => {
-    try {
-        const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${name}`);
-        return await res.json();     
-    } catch (error) {
-        console.log(error)
-    }
-}
-
-
 const getPokesSpecies = async (name) => {
     try {
         const res = await fetch(`https://pokeapi.co/api/v2/pokemon-species/${name}`);
-        return await res.json();     
-    } catch (error) {
-        console.log(error)
-    }
-}
-
-const getPokesEvoChains = async (id) => {
-    try {
-        const res = await fetch(`https://pokeapi.co/api/v2/evolution-chain/${id}`);
         return await res.json();     
     } catch (error) {
         console.log(error)
@@ -87,98 +108,161 @@ export default async () => {
     
     const pokeList = divElement.querySelector('#pokeList')
 
-    let start = 1
-    let end = 150
-    
-    const pokeArr = []
-    const speciesArr = []
-    const evosArr = []
-    
-    // for loops to get info (each pokemon, each specie, each evolution chain, etc)
+    const btn_first_gen = divElement.querySelector('#btn-gen-1');
+    const btn_second_gen = divElement.querySelector('#btn-gen-2');
+    const btn_third_gen = divElement.querySelector('#btn-gen-3');
+    const btn_fourth_gen = divElement.querySelector('#btn-gen-4');
+    const btn_fifth_gen = divElement.querySelector('#btn-gen-5');
+    const btn_sixth_gen = divElement.querySelector('#btn-gen-6');
+    const btn_seventh_gen = divElement.querySelector('#btn-gen-7');
+    const btn_eighth_gen = divElement.querySelector('#btn-gen-8');
 
-    for(let id = start; id <= end; id++) {
-        const pokes = await getPokesByID(id);
-        pokeArr.push(pokes)
-    }
+
+
+    let pokeArr = [];
+
+        const getFirstGen = async () => {
+            showLoader();
+            pokeList.innerHTML = '';
+            pokeArr.length = 0;
+            for(let id = begin_first_gen; id <= end_fist_gen; id++) {
+                const pokes = await getPokesByID(id);
+                pokeArr.push(pokes)
+            }
+            await paint_cards();
+        }
+
+        const getSecondGeneration = async () => {
+            showLoader();
+            pokeList.innerHTML = '';
+            pokeArr.length = 0;
+            for(let id = begin_second_gen; id <= end_second_gen; id++) {
+                const pokes = await getPokesByID(id);
+                pokeArr.push(pokes)
+            }
+            await paint_cards();
+        }
+        
+        const getThirdGeneration = async () => {
+            showLoader();
+            pokeList.innerHTML = '';
+            pokeArr.length = 0;
+            for(let id = begin_third_gen; id <= end_third_gen; id++) {
+                const pokes = await getPokesByID(id);
+                pokeArr.push(pokes)
+            }
+            await paint_cards();
+        }
+
+        const getFourthGeneration = async () => {
+            showLoader();
+            pokeList.innerHTML = '';
+            pokeArr.length = 0;
+            for(let id = begin_fourth_gen; id <= end_fourth_gen; id++) {
+                const pokes = await getPokesByID(id);
+                pokeArr.push(pokes)
+            }
+            await paint_cards();
+        }
+
+        const getFifthGeneration = async () => {
+            showLoader();
+            pokeList.innerHTML = '';
+            pokeArr.length = 0;
+            for(let id = begin_fifth_gen; id <= end_fifth_gen; id++) {
+                const pokes = await getPokesByID(id);
+                pokeArr.push(pokes)
+            }
+            await paint_cards();
+        }
+
+        const getSixthGeneration = async () => {
+            showLoader();
+            pokeList.innerHTML = '';
+            pokeArr.length = 0;
+            for(let id = begin_sixth_gen; id <= end_sixth_gen; id++) {
+                const pokes = await getPokesByID(id);
+                pokeArr.push(pokes)
+            }
+            await paint_cards();
+        }
+
+        const getSeventhGeneration = async () => {
+            showLoader();
+            pokeList.innerHTML = '';
+            pokeArr.length = 0;
+            for(let id = begin_seventh_gen; id <= end_seventh_gen; id++) {
+                const pokes = await getPokesByID(id);
+                pokeArr.push(pokes)
+            }
+            await paint_cards();
+        }
+
+        const getEighthGeneration = async () => {
+            showLoader();
+            pokeList.innerHTML = '';
+            pokeArr.length = 0;
+            for(let id = begin_eighth_gen; id <= end_eighth_gen; id++) {
+                const pokes = await getPokesByID(id);
+                pokeArr.push(pokes)
+            }
+            await paint_cards();
+        }
+
+    btn_first_gen.addEventListener('click', getFirstGen);
+    btn_second_gen.addEventListener('click', getSecondGeneration);
+    btn_third_gen.addEventListener('click', getThirdGeneration);
+    btn_fourth_gen.addEventListener('click', getFourthGeneration);
+    btn_fifth_gen.addEventListener('click', getFifthGeneration);
+    btn_sixth_gen.addEventListener('click', getSixthGeneration);
+    btn_seventh_gen.addEventListener('click', getSeventhGeneration);
+    btn_eighth_gen.addEventListener('click', getEighthGeneration);
+    
+    // function escapeRegExp(string) {
+    //     return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); 
+    // }
+    // const evoChainsArr = speciesArr.map((specie) => {
+    //     let urlstring = "https://pokeapi.co/api/v2/evolution-chain/"
+    //     let reg = new RegExp(escapeRegExp(urlstring), 'g')
+    //     return { 
+    //         pokename: specie.name, 
+    //         evolves_from: specie.evolves_from_species,
+    //         evochain: specie.evolution_chain.url, 
+    //         evochain_id: parseInt(specie.evolution_chain.url.replace(reg, '').slice(0, -1))
+    //     } 
+    // });
+    
+    // for(let item of evoChainsArr) {
+        
+    //     if(item.evolves_from !== null){
+    //         const last_evo = await getPokesByNAME(item.evolves_from.name)
+    //         evosArr.push(last_evo)
+    //     }
+    // }
+
+    
+    
+
+    
+    const paint_cards = async () => {
+
+    
+        
+    console.log(pokeArr)
 
     for(let pokemon of pokeArr) {
-        const species = await getPokesSpecies(pokemon.name)
-        speciesArr.push(species)
+        let species = await getPokesSpecies(pokemon.name)
 
-    }
-
-    
-    function escapeRegExp(string) {
-        return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); 
-    }
-    
-    const evoChainsArr = speciesArr.map((specie) => {
-        let urlstring = "https://pokeapi.co/api/v2/evolution-chain/"
-        let reg = new RegExp(escapeRegExp(urlstring), 'g')
-        return { 
-            pokename: specie.name, 
-            evolves_from: specie.evolves_from_species,
-            evochain: specie.evolution_chain.url, 
-            evochain_id: parseInt(specie.evolution_chain.url.replace(reg, '').slice(0, -1))
-        } 
-    });
-    
-    for(let item of evoChainsArr) {
-        
-        if(item.evolves_from !== null){
-            const last_evo = await getPokesByNAME(item.evolves_from.name)
-            evosArr.push(last_evo)
+        if(species === undefined) {
+            species = {}
+        } else {
+            
+            pokemon.flavor_text = species.flavor_text_entries[0] !== undefined ? species.flavor_text_entries[0].flavor_text : 'Description no available';
+            
+            pokemon.evolves_from = species.evolves_from_species !== null ? species.evolves_from_species.name : 'baseform';
         }
     }
 
-    // const evolution_chains = evosArr.map((evochain) => {
-    //     for(let evos of evochain.evolves_to) {
-    //         let next_evo = evos;
-
-    //         return {
-    //             pokemon_name: evochain.species.name,
-    //             next_evo: next_evo.species.name
-    //         }
-    //     }
-    // })
-
-    
-    // for(let evo_info of evoChainsArr) {
-        
-        //     for(let specie of speciesArr){
-            //         if(evo_info.pokename === specie.name) {
-                //             const chain = await getPokesEvoChains(evo_info.evochain_id)
-    //             evosArr.push(chain)
-    //         }
-    //         return;
-    //     }
-    
-    //     return;
-    
-    // }
-    
-    
-    
-    
-    console.log(pokeArr)
-    
-    console.log(speciesArr)
-    
-    console.log(evoChainsArr)
-    
-    console.log(evosArr)
-    
-    // console.log(evolution_chains)
-
-    // const evolves_from = speciesArr.map((evo) => {
-    //     return { baseform: evo.name, evolves_from: evo.evolves_from_species, evolves_to: ''}
-    // })
-
-    // speciesArr.forEach((pokemon, pokemonID) => {
-
-    // });
-
-    
     pokeArr.forEach((poke) => {
 
         let background = '';
@@ -187,6 +271,10 @@ export default async () => {
         let second_icon = '';
         let icon_color = '';
         let second_icon_color = '';
+
+        if(poke.flavor_text === undefined){
+            return poke.flavor_text = 'Description no available'
+        }
 
         switch(poke.types[0].type.name) {
             case "grass":
@@ -396,13 +484,13 @@ export default async () => {
                                     </p>
                                 </div>
                                     <div class="card-img">
-                                        <img src="${poke.sprites.other.dream_world.front_default}" width="100%" height="130px" class="mt-3">
+                                        <img src="${poke.sprites.other['official-artwork'].front_default}" width="170rem" height="170rem" class="mt-3">
                                     </div>
                                         <div class="card-body">
                                             <div class="card-title mb-1">
                                                 ${poke.name.charAt(0).toUpperCase() + poke.name.slice(1) }
                                             </div>
-                                                    <ul style="list-style: none">
+                                                    <ul class="text-center">
                                                     <li>
                                                     Main type:
                                                     </li>
@@ -429,15 +517,52 @@ export default async () => {
                                 ${poke.name.charAt(0).toUpperCase() + poke.name.slice(1) }
                                 </div>
                                 <div class="card-back-body">
-                                    <div class="evolutions-row">
-
-                                    </div>
                                     <div class="card-back-body-text">
-                                        <h3 class="text-center mt-2 mb-2">Second type:</h3>
+                                        <h3 class="text-center mt-1 mb-1">Secondary type:</h3>
+                                        <p>${poke.types[1] !== undefined ? '' : 'No secondary type'}</p>
                                         <div class="type-icon" style="background: ${second_icon_color}; box-shadow: 0px 0px 20px ${second_icon_color};">
                                             <img src="${second_icon}" width="30" height="30" style="margin: 20%">
                                         </div>
-                                        <p class="text-center mt-2">${poke.types[1] !== undefined ? poke.types[1].type.name.charAt(0).toUpperCase() + poke.types[1].type.name.slice(1) : 'No second type'}</p>
+                                        <p class="text-center mt-1">${poke.types[1] !== undefined ? poke.types[1].type.name.charAt(0).toUpperCase() + poke.types[1].type.name.slice(1) : ''}</p>
+                                    </div>
+                                    <img class="sprite-img mt-1" src="${poke.sprites.versions['generation-v']['black-white'].animated.front_default}" width="auto" height="auto">
+                                    <div class="flavor-text">
+                                        ${poke.flavor_text.includes('') ? poke.flavor_text.replace('', ' ') : poke.flavor_text}
+                                    </div> 
+                                    <div class="stats-text">
+                                        <div class="d-flex justify-between mt-1">
+                                                
+                                                    <ul class="text-center">
+                                                        <li>${poke.stats[0].stat.name.toUpperCase()}</li>
+                                                        <li>${poke.stats[0].base_stat}</li>
+                                                    </ul>
+                                                
+                                                
+                                                    <ul class="text-center">
+                                                        <li>${poke.stats[1].stat.name.toUpperCase()}</li>
+                                                        <li>${poke.stats[1].base_stat}</li>
+                                                    </ul>
+                                                
+                                                
+                                                    <ul class="text-center">
+                                                        <li>${poke.stats[2].stat.name.toUpperCase()}</li>
+                                                        <li>${poke.stats[2].base_stat}</li>
+                                                    </ul>
+                                                
+                                        </div>
+                                        <div class="d-flex justify-between mt-1">
+                            
+                                                    <ul class="text-center">
+                                                        <li>${poke.stats[3].stat.name.toUpperCase()}</li>
+                                                        <li>${poke.stats[3].base_stat}</li>
+                                                    </ul>
+                            
+                            
+                                                    <ul class="text-center">
+                                                        <li>${poke.stats[4].stat.name.toUpperCase()}</li>
+                                                        <li>${poke.stats[4].base_stat}</li>
+                                                    </ul>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -446,25 +571,13 @@ export default async () => {
             </div>
         `;
 
-    })
+        hideLoader();
 
-    /*
+        })
 
-    <div class="evolutions-row">
-            <div class="col-4 text-right">
-            <img class="evo-img" src="${poke.sprites.versions['generation-v']['black-white'].animated.front_default}" width="auto" height="auto">
-            </div>
-            <div class="col-4 text-center">
-                <i class="fas fa-arrow-right card-back-arrow"></i>
-            </div>
-            <div class="col-4 text-left">
-            <img class="evo-img" src="${poke.sprites.versions['generation-v']['black-white'].animated.front_default}" width="auto" height="auto">
-            </div>
-    </div>
+        return pokeList;
 
-    */
-    
-
+    }
 
     return divElement;
 
