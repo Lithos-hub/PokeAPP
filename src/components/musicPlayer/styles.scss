@@ -2,39 +2,39 @@
 
 .fixed-footer {
     position: fixed;
-    left: 0px;
-    bottom: 0px;
+    bottom: 0;
+    left: 0;
     width: 100%;
 }
 
+// BAR
 .musicPlayer {
-    position: relative;
     display: flex;
-    padding: 5px;
-    width: 100%;
-    height: 4rem;
-    background-image: linear-gradient(to bottom, white 5%,#408eaa 10%,  #66a7a7 20%, #afe9fa 50%, #1c5c5e 2%, #123649 5%, $dark);
+    position: relative;
     justify-content: space-between;
+    width: 100%;
+    padding: 0.1rem;
+    background-image: linear-gradient(to bottom, white 5%,#408eaa 10%,  #66a7a7 20%, #afe9fa 50%, #1c5c5e 2%, #123649 5%, $dark);
 
 }
 
+// LEFT BUTTON
 .music-player-play, .music-player-pause {
-    clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
-    position: relative;
+    position: absolute;
     left: 1rem;
-    padding: 1rem;
-    width: 5rem;
+    height: 100%;
     border: 0;
-    margin: 5px;
     outline: none;
+    background-image: linear-gradient(to bottom, white,#4157af 10%, #0059ff 30%, #003acc 50%, $dark);
     transition: $transFast;
-    background-image: linear-gradient(to bottom, rgb(202, 251, 255) 10%,  #aadfdf 30%, #dcf7ff 50%, #123649);
-    
+    clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
+    margin: 0.1rem;
+    color: white;
 
     &:hover {
-        background: $dark;
-        color: white;
+        color: $poke4;
         cursor: pointer;
+        background: $dark;
     }
 }
 
@@ -45,4 +45,71 @@
 
 .button-clicked {
     box-shadow: inset 5px 0px 7px $dark, inset -5px 0px 7px $dark;
+}
+
+.about-card {
+    width: 100%;
+    height: 100%;
+}
+
+.about-button {
+    font-family: 'Fjalla One', sans-serif;
+    position: absolute;
+    right: 1rem;
+    height: 100%;
+    border: 0;
+    color: white;
+    outline: none;
+    letter-spacing: 2px;
+    clip-path: polygon(0 0, 75% 0, 100% 100%, 25% 100%);
+    background-image: linear-gradient(to bottom, white, #af4141 10%,  $poke1 30%, $poke2 50%, $dark);
+    transition: $transFast;
+
+    &:hover {
+        background: white;
+        color: $dark;
+        cursor: pointer;
+    }
+
+}
+
+// ******* MOBILE RESPONSIVE ******* //
+@media only screen and (min-width: 360px) {
+    .musicPlayer {
+        height: 2rem;
+    }
+    .about-button {
+        width: 3rem;
+        font-size: 0.5em;
+    }
+    .music-player-play, .music-player-pause{
+        width: 3rem;
+    }
+}
+// ******* LAPTOP RESPONSIVE ******* //
+@media only screen and (min-width: 767px) {
+    .musicPlayer {
+        height: 3rem;
+    }
+    .about-button {
+        width: 4rem;
+        font-size: 0.8em;
+    }
+    .music-player-play, .music-player-pause{
+        width: 4rem;
+    }
+}
+
+// ******* DESKTOP RESPONSIVE ******* //
+@media only screen and (min-width: 1370px) {
+    .musicPlayer {
+        height: 3.5rem;
+    }
+    .about-button {
+        width: 5rem;
+        font-size: auto;
+    }
+    .music-player-play, .music-player-pause{
+        width: 5rem;
+    }
 }

@@ -18,7 +18,6 @@ function hideComponents() {
 
 const router = async (route) => {
     content.innerHTML = '';
-
     
     // Pages / views
     switch(route) {
@@ -32,9 +31,17 @@ const router = async (route) => {
         return content.appendChild(pages.home())
         
         case "#/app":
+        hideComponents()
         return { 
             page: content.appendChild(await pages.api()),
             others: showComponents()
+        }
+
+        case "#/about":
+        hideComponents()
+        return {
+            page: content.appendChild(pages.about()),
+            others: showComponents()   
         }
             
         default:

@@ -10,6 +10,11 @@ More features will be included soon with new versions.
 
 Changelog
 
+Version 1.5.0
+
+* Added about page.
+* Improved the responsive design on desktop and laptop devices.
+
 Version 1.3.0
 
 * All generations are now availables.

@@ -4,7 +4,7 @@ ul {
     list-style: none;
 }
 
-.api-background {
+.api-secondary-background {
     position: fixed;
     top: 0;
     left: 0;
@@ -43,23 +43,12 @@ ul {
     list-style: none;
 }
 
-.loader {
-    font-size: 5em;
-    color: white;
-    background: $poke3;
-    padding: 2rem;
-    border-radius: 15px;
-    margin: 0 auto;
-    text-align: center;
-}
 
 
 // #1
 
 .card-wrapper {
     background-color: transparent;
-    width: $cardwidth;
-    height: $cardheight;
     perspective: 1000px;
 }
 
@@ -67,8 +56,6 @@ ul {
 
 .card-inner {
     position: relative;
-    width: $cardwidth;
-    height: $cardheight;
     transition: transform 0.6s ease-in-out;
     transform-style: preserve-3d;
     border-radius: 15px;
@@ -81,8 +68,6 @@ ul {
 .card, .card-back {
     position: absolute;
     top: 0;
-    width: $cardwidth;
-    height: $cardheight;
     background-color: $poke3;
     border-radius: 15px;
     border: 2px solid $softDark;
@@ -108,8 +93,6 @@ ul {
 .card {
     background-color: #bbb;
     position: relative;
-    width: $cardwidth;
-    height: $cardheight;
     border-radius: 15px;
     border: 2px solid $softDark;
     margin: 0 auto;
@@ -121,15 +104,12 @@ ul {
 
 
 .card-img {
-    padding-top: 2rem;
     text-align: center;
     display: block;
 }
 
 .type-icon {
     border-radius: 100%;
-    height: 4em;
-    width: 4em;
     margin: 0 auto;
 }
 
@@ -138,21 +118,15 @@ ul {
     font-family: $style3;
     background-color: $dark;
     width: 100%;
-    font-size: 2em;
-    padding-bottom: 1rem;
 }
 
 .card-body {
     position: absolute;
     bottom: 0;
     left: 0;
-    margin: 2px;
-    width: 99%;
-    padding: 1rem;
     margin-top: 0;
     background-color: $dark;
     box-shadow: inset 0px 0px 10px black;
-    font-size: 0.8rem;
     font-weight: 100;
     border-radius: 0px 0px 15px 15px;
 }
@@ -163,10 +137,6 @@ ul {
     top: 0;
     left: 0;
     width: 100%;
-    height: 3rem;
-    font-size: 1.5em;
-    padding-top: 0.5rem;
-    letter-spacing: 5px;
     background: $softDark;
     border-radius: 12px 12px 0px 0px;
     color: $poke4;
@@ -180,39 +150,15 @@ ul {
     border-radius: 0px 0px 15px 15px;
     box-shadow: inset 0px 0px 2rem black;
     width: 100%;
-    height: $cardheight - 3rem;
     z-index: 0;
-}
-
-
-.evolutions-row {
-    z-index: 1;
-    display: flex;
-    width: 100%;
-    justify-content: space-around;
-    position: relative;
-    vertical-align: baseline;
-}
-
-.card-back-arrow {
-    margin-top: 3rem;
-    font-size: 2em;
-    color: $poke4;
-}
-
-.margin-cols {
-    margin-top: 5rem;
-    margin-bottom: 5rem;
 }
 
 .card-id {
     position: absolute;
     top: 0;
     left: 0;
-    background: $dark;
-    width: 7rem;
-    height: 6rem;
     border-radius: 12px 0px 0px 0px;
+    background: $dark;
     clip-path: polygon(0 0, 100% 0%, 50% 50%, 0 50%);
 }
 
@@ -220,7 +166,6 @@ ul {
     position: absolute;
     top: 0.5em;
     left: 0.5em;
-    font-size: 1.2em;
     padding: 0 auto;
     color: $primary;
     
@@ -238,8 +183,6 @@ ul {
 .stats-text {
     position: absolute;
     bottom: 0;
-    font-size: 0.8rem;
-    padding-bottom: 0.5rem;
     width: 100%;
     height: auto;
     border-radius: 0px 0px 15px 15px;
@@ -250,5 +193,160 @@ ul {
 
     div ul {
         width: 100%;
+    }
+}
+
+// ******* MOBILE RESPONSIVE ******* //
+@media only screen and (min-width: 360px) {
+}
+// ******* LAPTOP RESPONSIVE ******* //
+@media only screen and (min-width: 767px) {
+    .nav-button {
+        padding: 1rem;
+        font-size: 0.5em;
+    }
+
+    .card, .card-wrapper, .card-inner, .card, .card-back {
+        width: $cardwidth * 0.75;
+        height: $cardheight * 0.75;
+    }
+
+    .margin-cols {
+        margin-top: 2.5rem;
+        margin-bottom: 2.5rem;
+    }
+
+    .card-img {
+        padding-top: 1rem;
+    }
+    
+    .type-icon {
+        height: 3rem;
+        width: 3rem;
+    }
+
+    .type-innericon {
+        height: 1.5rem;
+        width: 1.5rem;
+    }
+    
+    .card-title {
+        font-size: 1rem;
+        padding-bottom: 0.5rem;
+    }
+    
+    .card-body {
+        margin: 2px;
+        width: 98%;
+        padding: 0.5rem;
+        font-size: 0.5rem;
+    }
+    .front-img {
+        margin-top: 2rem;
+        width: 7rem;
+        height: 7rem;
+    }
+    .card-id{
+        width: 5rem;
+        height: 4rem;
+    }
+    .card-id-number{
+        font-size: 0.8em;
+    }
+    .card-back-title {
+        height: 1.5rem;
+        font-size: 1em;
+        padding-top: 0.2rem;
+        letter-spacing: 3px;
+    }
+    
+    .card-back-body {
+        height: ($cardheight * 0.75) - 1.5rem;
+    }
+    .stats-text {
+        font-size: 0.5rem;
+        padding-bottom: 0.2rem;
+    }
+    .flavor-text {
+        font-size: 0.7rem;
+    }
+    h3 {
+        font-size: 1rem;
+    }
+}
+
+// ******* DESKTOP RESPONSIVE ******* //
+@media only screen and (min-width: 1370px) {
+    .nav-button {
+        padding: 1rem;
+        font-size: 0.8em;
+    }
+
+    .card, .card-wrapper, .card-inner, .card, .card-back {
+        width: $cardwidth;
+        height: $cardheight;
+    }
+
+    .margin-cols {
+        margin-top: 5rem;
+        margin-bottom: 5rem;
+    }
+    .card-img {
+        padding-top: 2rem;
+    }
+    
+    .type-icon {
+        height: 4rem;
+        width: 4rem;
+    }
+
+    .type-innericon {
+        height: 2rem;
+        width: 2rem;
+    }
+    
+    .card-title {
+        font-size: 2rem;
+        padding-bottom: 1rem;
+    }
+    
+    .card-body {
+        margin: 2px;
+        width: 99%;
+        padding: 1rem;
+        font-size: 0.8rem;
+    }
+    .front-img {
+        margin-top: 0;
+        width: 10rem;
+        height: 10rem;
+    }
+    .card-id{
+        width: 7rem;
+        height: 6rem;
+    }
+    .card-id-number{
+        font-size: 1.2em;
+    }
+    .card-back-title {
+        height: 3rem;
+        font-size: 1.5em;
+        padding-top: 0.5rem;
+        letter-spacing: 5px;
+    }
+    
+    .card-back-body {
+        height: $cardheight - 3rem;
+    }
+    
+    .stats-text {
+        font-size: 0.8rem;
+        padding-bottom: 0.5rem;
+    }
+    .flavor-text {
+        font-size: 1rem;
+    }
+    h3 {
+        font-size: 1.5rem;
     }
 }

@@ -3,43 +3,12 @@
 .navbar {
     background: $dark;
     width: 100%;
-    height: 4rem;
     box-shadow: 0px 0px 15px $dark;
-
-}
-
-.navbar ul {
-    color: $mainColor;
-    display: flex;
-    list-style: none;
-    position: relative;
-    margin-left: 6rem;
-
-    li {
-        position: relative;
-        top: 1.5rem;
-    }
-
-    li a {
-        margin-left: 1.5rem;
-        color: $primary !important;
-        text-decoration: none;
-        padding: 1rem;
-
-        &:hover {
-        border-bottom: 5px solid $tertiary;
-        color: $mainColor !important;
-        }
-
-    }
 }
 
 .navbar-brand img {
-    width: 5rem;
-    height: 5rem;
     position: absolute;
     left: 1rem;
-    top: 0.5rem;
     margin: 0;
     border-radius: 50%;
     padding: 0.5rem;
@@ -62,9 +31,154 @@
 
 .navbar-text {
     letter-spacing: 3px;
-    font-size: 1.3em;
     font-family: $style2;
     text-align: right;
-    margin-right: 4rem;
 }
 
+// ******* MOBILE RESPONSIVE ******* //
+@media only screen and (min-width: 360px) {
+    .navbar {
+        height: 2rem;
+    }
+
+    .navbar ul {
+        color: $mainColor;
+        display: flex;
+        list-style: none;
+        position: relative;
+        margin-left: 4rem;
+    
+        li {
+            position: relative;
+            top: 0.75rem;
+        }
+    
+        li a {
+            margin-left: 0.8rem;
+            color: $primary !important;
+            text-decoration: none;
+    
+            &:hover {
+            border-bottom: 5px solid $tertiary;
+            color: $mainColor !important;
+            }
+    
+        }
+    }
+
+    .navbar-brand img {
+        width: 4rem;
+        height: 4rem;
+        top: 0.5rem;
+    }
+    .navbar-text {
+        font-size: 0.5em;
+        margin-right: 2rem;
+    }
+    .webpack-logo img {
+        width: 2rem;
+        height: 2rem;
+    }
+}
+// ******* LAPTOP RESPONSIVE ******* //
+@media only screen and (min-width: 767px) {
+    .navbar {
+        height: 3rem;
+    }
+
+    .navbar ul {
+        color: $mainColor;
+        display: flex;
+        list-style: none;
+        position: relative;
+        margin-left: 5rem;
+    
+        li {
+            position: relative;
+            top: 1rem;
+            justify-content: center;
+        }
+        
+        li a {
+            margin-left: 3rem;
+            color: $primary !important;
+            text-decoration: none;
+            font-size: 1rem;
+            padding: 0.5rem;
+            
+            &:hover {
+                
+            border-bottom: 5px solid $tertiary;
+            color: $mainColor !important;
+           
+            }
+    
+        }
+    }
+
+    .navbar-brand img {
+        width: 4rem;
+        height: 4rem;
+        top: 0.5rem;
+    }
+    .navbar-text {
+        font-size: 0.8em;
+        margin-right: 3rem;
+    }
+    .webpack-logo img {
+        width: 3rem;
+        height: 3rem;
+    }
+}
+// ******* DESKTOP RESPONSIVE ******* //
+@media only screen and (min-width: 1370px) {
+    .navbar {
+        height: 4rem;
+    }
+
+    .navbar ul {
+        color: $mainColor;
+        display: flex;
+        list-style: none;
+        position: relative;
+        margin-left: 6rem;
+    
+        li {
+            position: relative;
+            top: 1.5rem;
+            justify-content: center;
+        }
+        
+        li a {
+            margin-left: 3rem;
+            color: $primary !important;
+            text-decoration: none;
+            font-size: 1rem;
+            padding: 1rem;
+            
+            &:hover {
+                
+            border-bottom: 5px solid $tertiary;
+            color: $mainColor !important;
+           
+            }
+    
+        }
+    }
+
+    .navbar-brand img {
+        width: 5rem;
+        height: 5rem;
+        top: 0.5rem;
+    }
+
+    .navbar-text {
+        font-size: 1.3em;
+        margin-right: 4rem;
+    }
+
+    .webpack-logo img {
+        width: 4rem;
+        height: 4rem;
+    }
+}

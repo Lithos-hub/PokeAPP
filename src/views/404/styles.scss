@@ -1,28 +1,45 @@
 @import '../../scss/variables';
 
+.primary-background-404 {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    background: rgb(238, 238, 238);
+}
 
 .secondary-background-404 {
     position: fixed;
     top: 0px;
-    left: 0px;
-    background-image: linear-gradient(140deg, $poke3, rgb(0, 4, 111));
+    right: 5rem;
+    background-image: linear-gradient(140deg, $poke4, rgb(111, 72, 0));
     width: 100%;
     height: 100%;
-    clip-path: polygon(0 2%, 0 100%, 50% 100%);
+    clip-path: polygon(0 0%, 0 100%, 50% 100%);
+    z-index: -1;
+}
+
+.tertiary-background-404 {
+    position: fixed;
+    z-index: -1;
+    top: 0px;
+    left: 3rem;
+    background-image: linear-gradient(140deg, $poke1, $poke2);
+    width: 100%;
+    height: 100%;
+    clip-path: polygon(50% 0%, 100% 100%, 100% 0);
 }
 
 .pika-img {
     margin: 0 auto;
     background: url("../../assets/img/pika404.png");
-    width: 30rem;
-    height: 35rem;
     background-size: 100%;
     background-position: center;
     background-repeat: no-repeat;
 }
 
 .error404 {
-    font-size: 15em;
     color: $dark;
     display: inline;
 
@@ -34,13 +51,10 @@
 }
 
 #number1 {
-    text-shadow: 10px 0 0 $poke3, 0 10px 0 $poke3, -10px 0 0 $poke3, 0 -10px 0 $poke3, 0 0 10px $poke3;
-    color: $poke4;
+    color: $poke3;
 }
 
 #number2 {
-    width: 200px;
-    height: 200px;
     background: url("../../assets/img/pokeball.png");
     background-size: 100%;
     background-position: center;
@@ -49,25 +63,14 @@
 }
 
 #number3 {
-    text-shadow: 10px 0 0 $poke3, 0 10px 0 $poke3, -10px 0 0 $poke3, 0 -10px 0 $poke3, 0 0 10px $poke3;
     color: $poke4;
-}
-
-.error-text {
-    font-size: 7em;
-    letter-spacing: 5px;
-    
-    
 }
 
 .go-btn-404 {
     background: $tertiary;
     color: white;
-    font-size: 2em;
     border: none;
     border-radius: 15px;
-    width: 15rem;
-    height: 5rem;
     outline: none;
     text-shadow: 0px 0px 10px $dark;
     box-shadow: 0px 5px 10px $softDark;
@@ -78,5 +81,67 @@
         transform: scale(1.1);
         background: $dark;
         color: $primary;
+    }
+}
+
+// ******* MOBILE RESPONSIVE ******* //
+@media only screen and (min-width: 360px) {
+}
+// ******* LAPTOP RESPONSIVE ******* //
+@media only screen and (min-width: 767px) {
+    .pika-img {
+        width: 12rem;
+        height: 18rem;
+    }
+    .error404 {
+        font-size: 8em;
+    }
+    #number2 {
+        vertical-align:bottom;
+        margin-bottom: 1rem;
+        width: 130px;
+        height: 130px;
+    }
+    .go-btn-404 {
+        margin-top: 2rem;
+        width: 7rem;
+        height: 2.5rem;
+        font-size: 1em;
+    }
+    .error-text {
+        font-size: 4em;
+        letter-spacing: 0px;
+    }
+    .primary-background-404 {
+        padding-top: 5%;
+    }
+}
+
+// ******* DESKTOP RESPONSIVE ******* //
+@media only screen and (min-width: 1370px) {
+    .pika-img {
+        width: 20rem;
+        height: 25rem;
+    }
+    .error404 {
+        font-size: 10em;
+    }
+    #number2 {
+        vertical-align:bottom;
+        margin-bottom: 1rem;
+        width: 150px;
+        height: 150px;
+    }
+    .go-btn-404 {
+        width: 15rem;
+        height: 4rem;
+        font-size: 2em;
+    }
+    .error-text {
+        font-size: 4em;
+        letter-spacing: 5px;
+    }
+    .primary-background-404 {
+        padding-top: 1%;
     }
 }

@@ -1,0 +1,58 @@
+@import '../../scss/variables';
+
+.about-secondary-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(120deg, $softDark, $poke2);
+    clip-path: polygon(100% 0, 50% 100%, 100% 100%);
+}
+
+.about-list {
+    text-align: right;
+    margin-top: 15%;
+    color: $dark;
+    width: 100%;
+    height: 100%;
+    
+}
+
+
+// ******* MOBILE RESPONSIVE ******* //
+@media only screen and (min-width: 360px) {
+}
+// ******* LAPTOP RESPONSIVE ******* //
+@media only screen and (min-width: 767px) {
+    .about-list {
+        font-size: 1rem;
+        p {
+            margin-top: 2.5rem;
+            margin-bottom: 2.5rem;
+        }
+    }
+
+    @for $i from 1 through 4 {
+        #par-#{$i} {
+            margin-right: (70 * $i) * 1px;
+        }
+    }
+}
+
+// ******* DESKTOP RESPONSIVE ******* //
+@media only screen and (min-width: 1370px) {
+    .about-list {
+        font-size: 1.5rem;
+        p {
+            margin-top: 3rem;
+            margin-bottom: 3rem;
+        }
+    }
+
+    @for $i from 1 through 4 {
+        #par-#{$i} {
+            margin-right: (100 * $i) * 1px;
+        }
+    }
+}

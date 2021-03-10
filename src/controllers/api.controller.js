@@ -1,4 +1,4 @@
-import view from "../views/pokeapi/api.html";
+import api from "../views/pokeapi/api.html";
 import "../views/pokeapi/styles.scss";
 
 // Backgrounds cards
@@ -104,7 +104,7 @@ const getPokesSpecies = async (name) => {
 
 export default async () => {
     const divElement = document.createElement('div');
-    divElement.innerHTML = view;
+    divElement.innerHTML = api;
     
     const pokeList = divElement.querySelector('#pokeList')
 
@@ -484,7 +484,7 @@ export default async () => {
                                     </p>
                                 </div>
                                     <div class="card-img">
-                                        <img src="${poke.sprites.other['official-artwork'].front_default}" width="170rem" height="170rem" class="mt-3">
+                                        <img src="${poke.sprites.other['official-artwork'].front_default}" class="front-img">
                                     </div>
                                         <div class="card-body">
                                             <div class="card-title mb-1">
@@ -496,7 +496,7 @@ export default async () => {
                                                     </li>
                                                     <li class="mt-1">
                                                         <div class="type-icon" style="background: ${icon_color}; box-shadow: 0px 0px 20px ${icon_color};">
-                                                            <img src="${icon}" width="30" height="30" style="margin: 20%">
+                                                            <img src="${icon}" class="type-innericon" style="margin: 20%">
                                                         </div>
                                                         <p class="text-center mt-1">${poke.types[0].type.name.charAt(0).toUpperCase() + poke.types[0].type.name.slice(1)}</p>
                                                     </li>
@@ -521,7 +521,7 @@ export default async () => {
                                         <h3 class="text-center mt-1 mb-1">Secondary type:</h3>
                                         <p>${poke.types[1] !== undefined ? '' : 'No secondary type'}</p>
                                         <div class="type-icon" style="background: ${second_icon_color}; box-shadow: 0px 0px 20px ${second_icon_color};">
-                                            <img src="${second_icon}" width="30" height="30" style="margin: 20%">
+                                            <img src="${second_icon}" class="type-innericon" style="margin: 20%">
                                         </div>
                                         <p class="text-center mt-1">${poke.types[1] !== undefined ? poke.types[1].type.name.charAt(0).toUpperCase() + poke.types[1].type.name.slice(1) : ''}</p>
                                     </div>

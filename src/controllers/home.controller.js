@@ -1,4 +1,4 @@
-import views from "../views/home/home.html";
+import home from "../views/home/home.html";
 import "../views/home/styles.scss";
 
 // Images imports
@@ -16,7 +16,7 @@ export default () => {
     
     // View creation
     const divElement = document.createElement('div');
-    divElement.innerHTML = views;
+    divElement.innerHTML = home;
     /************* */
 
     // Images creation
@@ -52,7 +52,7 @@ export default () => {
         type()
     
     const majorVersion = 1
-    const minorVersion = 3
+    const minorVersion = 5
     const patch = 0
         
     version.insertAdjacentText('afterbegin', `v. ${majorVersion}.${minorVersion}.${patch}`)
