@@ -1,4 +1,5 @@
-import '../styles.scss'
+import '../styles.scss';
+import '../mobile/mobile.scss';
 
 import { router } from '../router/index.routes'
 

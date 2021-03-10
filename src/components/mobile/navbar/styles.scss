@@ -1,0 +1,165 @@
+@import '../../../scss/variables';
+
+$inputWidth: 15rem;
+
+.mob-navbar {
+    position: fixed;
+    z-index: 99999;
+    height: 3.5rem;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-image: linear-gradient(150deg, $poke2, rgb(146, 0, 0));
+    border-bottom: 2px solid rgb(146, 0, 0);
+    box-shadow: 0px 0px 5px $softDark, 0px 0px 15px $dark;
+}
+
+.menu-button-container {
+    position: absolute;
+    left: 15%;
+    top: 30%;
+}
+
+#menu-btn {
+    color: white;
+    font-size: 1em;
+    margin: 0 auto;
+}
+
+.input-search-container {
+    position: absolute;
+    right: 5%;
+    top: 18%;
+    width: $inputWidth;
+}
+
+.input-search-img{
+    width: 3.5rem;
+    height: 3.5rem;
+    position: fixed;
+    top: 0;
+    right: 0;
+    transition: all 1s ease-in-out;
+    transform: rotate(0deg);
+}
+
+.input-search-img-animation {
+    right: $inputWidth;
+    transition: all 1s ease-in-out;
+    transform: rotate(360deg);
+}
+
+#input-label {
+    font-family: $mobstyle2;
+}
+
+.focus-off {
+    position: absolute;
+    top: 15%;
+    left: 5%;
+    color: gray;
+    font-weight: 100;
+    font-size: 1em;
+    background: transparent;
+    transition: all 0.3s ease-in;
+}
+
+#search-input {
+    outline: none;
+    width: 15rem;
+    height: auto;
+    padding-left: 2rem;
+    border-radius: 5px;
+    box-shadow: 1px 3px 10px rgb(89, 0, 0);
+    font-size: 1em;
+    padding-top: 0.3rem;
+    padding-bottom: 0.3rem;
+    font-family: $mobstyle2;
+}
+
+.border-off {
+    border-radius: 5px;
+    border: 1px solid #A1A1A1;
+    transition: all 0.2s ease-in;
+}
+
+.border-on {
+    border-radius: 7px;
+    border: 2px solid rgb(67, 67, 238);
+    transition: all 0.2s ease-in;
+}
+
+.focus-on {
+    position: absolute;
+    transition: all 0.3s ease-in-out;
+    top: -25%;
+    left: 60%;
+    color: $poke3;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-weight: 100;
+    font-size: 0.7em;
+    background: white;
+    clip-path: polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%);
+}
+
+.side-menu-opened {
+    position: fixed;
+    z-index: 99999;
+    top: 0;
+    margin: 0 auto;
+    left: 0rem;
+    width: 12rem;
+    height: 100%;
+    background-image: linear-gradient(150deg, $poke2 50%, $dark 50%);
+    box-shadow: 5px 0px 10px $dark;
+    transition: all 0.5s ease-in-out;
+
+}
+
+.side-menu {
+    margin-right: 20rem;
+
+    ul {
+        padding-top: 50%;
+    }
+
+}
+
+.side-menu-title {
+    text-align: center;
+    font-family: $mobstyle1;
+    font-weight: 100;
+    letter-spacing: 5px;
+}
+
+.side-menu-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+
+}
+
+.side-menu-content ul li {
+    font-family: $mobstyle2;
+    font-size: 1em;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.developer {
+    position: absolute;
+    bottom: 2rem;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.developer-text {
+    color: $poke4;
+    text-align: center;
+    font-size: 1em;
+    font-family: $mobstyle2;
+}

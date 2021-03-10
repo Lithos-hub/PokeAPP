@@ -5,6 +5,16 @@ import "../views/home/styles.scss";
 import OAK from "../assets/img/oak.png";
 import LOGO from "../assets/img/pokeapi.png";
 
+const majorVersion = 1
+const minorVersion = 6
+const patch = 0
+
+const version_data = {
+    major: majorVersion,
+    minor: minorVersion,
+    patch: patch
+}
+
 export default () => {
 
     // Images assignments
@@ -51,14 +61,11 @@ export default () => {
         
         type()
     
-    const majorVersion = 1
-    const minorVersion = 5
-    const patch = 0
-        
+    
     version.insertAdjacentText('afterbegin', `v. ${majorVersion}.${minorVersion}.${patch}`)
 
     return divElement;
 
 }
 
-
+export { version_data }

@@ -1,0 +1,86 @@
+@import "../../scss/variables";
+
+.mobile-main-background {
+    margin-top: 0rem;
+}
+
+.mobile-poke-list {
+    position: relative;
+    top: 0;
+    left: 0;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    color: $dark;
+    
+
+    & .mobile-poke-list-item:nth-child(even){
+        background-image: linear-gradient(150deg, $poke2, rgb(145, 0, 0));
+        color: white;
+    }
+}
+
+.mobile-poke-list-item {
+    font-size: 0.8rem;
+    background-image: linear-gradient(150deg, white, rgb(243, 243, 243));
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    padding-right: 0.5rem;
+    border-top: 2px solid $dark;
+    width: 100%;
+    height: 100%;
+    display: inline-flex;
+}
+
+.mob-poke-id {
+    font-size: 1.2rem;
+    font-family: $mobstyle2;
+}
+
+.mob-poke-name {
+    font-size: 1.2rem;
+    font-family: $mobstyle2;
+}
+
+
+.mob-poke-img {
+    margin: 0 auto;
+    width: 75px;
+    height: 75px;
+    display: block;
+}
+
+.mob-type-icon {
+    height: 2.2rem;
+    width: 2.2rem;
+    border-radius: 100%;
+    margin: 0 auto;
+}
+
+.mob-type-innericon {
+    height: 1.3rem;
+    width: 1.3rem;
+}
+
+.mob-info-btn-container {
+    margin: 0 auto;
+    text-align: center;
+}
+
+.mob-info-btn {
+    height: 2rem;
+    width: 5rem;
+    font-size: 0.8rem;
+    background-color: $poke3;
+    border-radius: 5px;
+    border: 0;
+    outline: none;
+    color: white;
+    box-shadow: 3px 2px 5px $dark;
+}
+
+.mob-poke-flavor-text{
+    font-size: 0.7rem;
+    text-align: justify;
+}
+

@@ -10,6 +10,11 @@ More features will be included soon with new versions.
 
 Changelog
 
+Version 1.6.0
+
+* Completely new design for mobile devices in the strat view and the /app section.
+
+
 Version 1.5.0
 
 * Added about page.

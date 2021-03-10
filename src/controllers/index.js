@@ -1,11 +1,20 @@
-import Home from './home.controller'
-import API from './api.controller'
-import About from './about.controller'
-import notfound from './404.controller'
+// Views
+import Home from './home.controller';
+import API from './api.controller';
+import About from './about.controller';
+import notfound from './404.controller';
 
-import Navbar from './navbar.controller'
-import MusicPlayer from './musicPlayer.controller'
-import Loader from './loader.controller'
+// Components
+import Navbar from './navbar.controller';
+import MusicPlayer from './musicPlayer.controller';
+import Loader from './loader.controller';
+
+// Mobile views
+import Mob_home from './mobileControllers/mob_home.controller';
+import Mob_API from "./mobileControllers/mob_api.controller";
+
+// Mobile components
+import Mob_Navbar from "./mobileControllers/mob_navbar.controller.js";
 
 const pages = {
     home: Home,
@@ -20,4 +29,13 @@ const components = {
     loader: Loader
 }
 
-export { pages, components };
+const mobile_pages = {
+    home: Mob_home,
+    api: Mob_API
+}
+
+const mobile_components = {
+    navbar: Mob_Navbar
+}
+
+export { pages, components, mobile_pages, mobile_components };
