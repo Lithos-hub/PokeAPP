@@ -15,6 +15,7 @@ import Mob_API from "./mobileControllers/mob_api.controller";
 
 // Mobile components
 import Mob_Navbar from "./mobileControllers/mob_navbar.controller.js";
+import Mob_Loader from "./mobileControllers/mob_loader.controller.js"
 
 const pages = {
     home: Home,
@@ -35,7 +36,8 @@ const mobile_pages = {
 }
 
 const mobile_components = {
-    navbar: Mob_Navbar
+    navbar: Mob_Navbar,
+    loader: Mob_Loader
 }
 
 export { pages, components, mobile_pages, mobile_components };

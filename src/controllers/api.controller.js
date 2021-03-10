@@ -44,7 +44,7 @@ import iconWATER from "../assets/icons/water.svg";
 import noicon from "../assets/icons/noicon.png";
 
 // Import components
-import { components } from "../controllers/index.js"
+import { components } from "./index.js"
 
 // Loader
 const loaderComponent = document.querySelector("#loaderDIV")

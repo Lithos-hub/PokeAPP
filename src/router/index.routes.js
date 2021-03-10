@@ -25,6 +25,7 @@ function hideComponents() {
 
 function showMobileComponents(){
     mobNavbarComponent.appendChild(mobile_components.navbar())
+
 }
 
 function hideMobileComponents(){

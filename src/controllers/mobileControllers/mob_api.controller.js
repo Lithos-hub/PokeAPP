@@ -44,6 +44,21 @@ const getPokesSpecies = async (name) => {
     }
 }
 
+// Import components
+import { mobile_components } from "../index.js"
+
+// Loader
+const loaderComponent = document.querySelector("#mobLoaderDIV")
+
+function showLoader() {
+    loaderComponent.appendChild(mobile_components.loader())
+}
+
+function hideLoader() {
+    loaderComponent.innerHTML = '';
+}
+
+
 export default () => {
     const divElement = document.createElement('div')
     divElement.innerHTML = mob_pokeapi;
@@ -62,7 +77,11 @@ export default () => {
             await paint_cards();
         }
 
+        showLoader();
+
         getFirstGen();
+        
+
 
 
         const paint_cards = async () => {
@@ -320,9 +339,12 @@ export default () => {
                 `;
         
             })
+            
+            hideLoader();
         
             return pokeList;
-        
+
+
         }
         
 

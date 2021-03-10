@@ -1,0 +1,24 @@
+@import '../../../scss/variables';
+
+.mob-loader {
+    position: relative;
+    z-index: 9999;
+    top: 3.5rem;
+    left: 0;
+    width: 100%;
+    background: $dark;
+    margin: 0 auto;
+    height: 100%;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    h1 {
+        font-size: 1.5em;
+        z-index: 99999;
+        color: $poke4;
+    }
+
+    p {
+        font-size: 1em;
+        color: white;
+    }
+}

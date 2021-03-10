@@ -10,6 +10,11 @@ More features will be included soon with new versions.
 
 Changelog
 
+Version 1.6.1
+
+* Fixed some issues.
+* Added a provisional loader (Mobile devices).
+
 Version 1.6.0
 
 * Completely new design for mobile devices in the start view and the /app section.
