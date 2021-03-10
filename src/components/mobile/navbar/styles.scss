@@ -16,7 +16,7 @@ $inputWidth: 15rem;
 
 .menu-button-container {
     position: absolute;
-    left: 15%;
+    left: 8%;
     top: 30%;
 }
 
@@ -162,4 +162,9 @@ $inputWidth: 15rem;
     text-align: center;
     font-size: 1em;
     font-family: $mobstyle2;
+}
+
+.side-menu-git-icon {
+    font-size: 1em;
+    margin-bottom: 2rem;
 }

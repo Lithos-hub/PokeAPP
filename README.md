@@ -12,7 +12,7 @@ Changelog
 
 Version 1.6.0
 
-* Completely new design for mobile devices in the strat view and the /app section.
+* Completely new design for mobile devices in the start view and the /app section.
 
 
 Version 1.5.0
