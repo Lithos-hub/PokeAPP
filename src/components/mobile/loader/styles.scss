@@ -4,21 +4,30 @@
     position: relative;
     z-index: 9999;
     top: 3.5rem;
-    left: 0;
-    width: 100%;
-    background: $dark;
-    margin: 0 auto;
-    height: 100%;
-    padding-top: 2rem;
-    padding-bottom: 2rem;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+    background-image: linear-gradient(120deg, $dark 50%, $poke3 50%);
+
     h1 {
         font-size: 1.5em;
-        z-index: 99999;
         color: $poke4;
     }
 
     p {
-        font-size: 1em;
+        font-size: 0.7em;
         color: white;
     }
+
+    
 }
+
+.mob-loader-pokegif img {
+    position: fixed;
+    z-index: 9999;
+    left: 50%;
+    transform: translate(-50%, 100%);
+    top: 25%;
+    width: 10rem;
+    height: auto;
+}
+

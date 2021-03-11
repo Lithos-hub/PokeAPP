@@ -1,0 +1,46 @@
+@import "../../scss/variables";
+
+.mob-about-secondary-background {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    background-image: linear-gradient(120deg, $dark, $poke3);
+    clip-path: polygon(100% 0, 100% 0%, 100% 100%, 0% 100%);
+    z-index: 0;
+}
+
+.mob-about-primary-background {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    background-image: linear-gradient(120deg, $dark, black);
+    z-index: 0;
+}
+
+.mob-about-title {
+    margin-top: 1rem;
+    color: white;
+    font-family: $mobstyle2;
+    font-weight: 100;
+    letter-spacing: 0;
+}
+
+.mob-about-text {
+    z-index: 9999;
+    position: absolute;
+
+    ul {
+        margin: 2rem;
+        background: linear-gradient(120deg, $poke3, white);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    li {
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        text-align: center;
+        font-family: $mobstyle2;
+        color: transparent;
+    }
+}

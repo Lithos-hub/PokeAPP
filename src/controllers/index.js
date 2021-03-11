@@ -12,6 +12,7 @@ import Loader from './loader.controller';
 // Mobile views
 import Mob_home from './mobileControllers/mob_home.controller';
 import Mob_API from "./mobileControllers/mob_api.controller";
+import Mob_About from "./mobileControllers/mob_about.controller";
 
 // Mobile components
 import Mob_Navbar from "./mobileControllers/mob_navbar.controller.js";
@@ -32,12 +33,13 @@ const components = {
 
 const mobile_pages = {
     home: Mob_home,
-    api: Mob_API
+    api: Mob_API,
+    about: Mob_About,
 }
 
 const mobile_components = {
     navbar: Mob_Navbar,
-    loader: Mob_Loader
+    loader: Mob_Loader,
 }
 
 export { pages, components, mobile_pages, mobile_components };

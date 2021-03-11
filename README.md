@@ -10,6 +10,15 @@ More features will be included soon with new versions.
 
 Changelog
 
+Version 1.7.0
+
+(Mobile devices)
+
+* Aesthetic changes in the start view.
+* New loader.
+* Added the /about section.
+* The side menu has been improved.
+
 Version 1.6.1
 
 * Fixed some issues.

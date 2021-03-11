@@ -21,23 +21,48 @@
     top: 50%;
     transform: translate(-50%, -50%);
     border-radius: 100%;
-    background: white;
-    color: black;
-    font-size: 1.8em;
-    width: 10rem;
-    height: 10rem;
-    border: 2rem solid $dark;
+    background-image: linear-gradient(120deg, white 5%, rgb(189, 189, 189) 40%, white 20%, rgb(194, 194, 194));
+    color: $dark;
+    mix-blend-mode:luminosity;
+    font-size: 2em;
+    width: 8rem;
+    height: 8rem;
+    border: 2px solid $dark;
     z-index: 999;
-    font-family: $mobstyle2;
-    animation: motion 0.6s linear infinite alternate-reverse;
+    font-family: $mobstyle1;
+    animation: pulse 1s ease-in-out infinite alternate-reverse;
 }
 
-@keyframes motion {
+.mob-btn-border{
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    border-radius: 100%;
+    height: 11.5rem;
+    width: 11.5rem;
+    z-index: 998;
+    background: linear-gradient(120deg, $dark 50%, white 50%);
+    border: 2px solid $dark;
+    animation: rotate 3s linear infinite;
+}
+
+
+@keyframes pulse {
     from {
         box-shadow: 0px 0px 0px transparent;
     }
     to {
         box-shadow: 0px 0px 30px white;
+    }
+}
+
+@keyframes rotate {
+    from {
+        
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+    to {
+        transform: translate(-50%, -50%) rotate(360deg);
     }
 }
 

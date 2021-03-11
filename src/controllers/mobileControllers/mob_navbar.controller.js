@@ -12,6 +12,14 @@ export default () => {
     main_background.style.marginTop = "3.5rem";
 
     const input_element = divElement.querySelector('.input-search-container');
+
+    if(window.location.hash === '#/about') {
+        input_element.style.display = "none"
+    } else {
+        input_element.style.display = "block";
+    }
+
+    
     const input_html = divElement.querySelector('input')
     const input_label = divElement.querySelector('#input-label');
 
@@ -30,7 +38,6 @@ export default () => {
     brandlogo.append(sideMenuImg);
     
     menuIcon.addEventListener('click', () => {
-        console.log("click!")
         sideMenu.classList.add('side-menu-opened')
         sideMenuContent.style.display = "block";
     })
@@ -58,12 +65,25 @@ export default () => {
             poke_img.classList.remove('input-search-img-animation')
             input_html.blur();
         }
+        hideSidemenu();
+    })
+
+    const hideSidemenu = () => {
         if(sideMenu.classList.contains('side-menu-opened')) {
             sideMenu.classList.remove('side-menu-opened')
             sideMenuContent.style.display = "none";
-
+    
         }
-    })
+    }
+
+    // TODO - Change this for querySelectorAll (it doesn't work for now)
+    const link_app = divElement.querySelector('.side-menu-app-link');
+    link_app.addEventListener('click', hideSidemenu)
+    
+    const link_about = divElement.querySelector('.side-menu-about-link');
+    link_about.addEventListener('click', hideSidemenu)
+
+
 
     return divElement;
 }

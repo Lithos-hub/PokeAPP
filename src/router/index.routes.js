@@ -90,6 +90,13 @@ const router = async (route) => {
                 page: mob_content.appendChild(await mobile_pages.api()),
                 others: showMobileComponents()
             }
+
+            case "#/about":
+            hideMobileComponents();
+            return { 
+                page: mob_content.appendChild(mobile_pages.about()),
+                others: showMobileComponents()
+            }
                           
         }
     }
