@@ -16,14 +16,67 @@ $inputWidth: 15rem;
 
 .menu-button-container {
     position: absolute;
-    left: 8%;
+    left: 5%;
     top: 30%;
+}
+
+.select-button-container {
+    position: absolute;
+    left: 20%;
+    top: 30%;
+    
 }
 
 #menu-btn {
     color: white;
     font-size: 1em;
     margin: 0 auto;
+}
+
+#select-btn {
+    color: white;
+    font-size: 1em;
+    margin: 0 auto;
+
+}
+
+.select-menu {
+    position: absolute;
+    z-index: 99999;
+    top: 100%;
+    width: 100%;
+    height: 13rem;
+    padding: 0.5rem;
+    border-top: 2px solid rgb(146, 0, 0);
+    background-image: linear-gradient(150deg, $poke3, rgb(29, 29, 124));
+    box-shadow: 0px 5px 5px $softDark, 0px 10px 15px $dark;
+
+    .row {
+        margin-bottom: 1rem;
+    }
+
+    h5 {
+        margin-bottom: 1rem;
+        font-size: 2rem;
+        font-family: $mobstyle2;
+        text-align: center;
+        text-transform: uppercase;
+        letter-spacing: 5px;
+    }
+
+    button {
+        width: 95%;
+        height: 100%;
+        padding: 0.5rem;
+        border: 0 auto;
+        border: none;
+        border-radius: 5px;
+        color: $poke4;
+        font-size: 1rem;
+        font-family: $mobstyle2;
+        background-image: linear-gradient(120deg, $dark, black);
+        box-shadow: 0px 5px 10px $dark;
+    }
 }
 
 .input-search-container {
@@ -77,15 +130,15 @@ $inputWidth: 15rem;
     font-family: $mobstyle2;
 }
 
-.border-off {
+.mob-navbar-input-border-off {
     border-radius: 5px;
-    border: 1px solid #A1A1A1;
+    border: none;
     transition: all 0.2s ease-in;
 }
 
-.border-on {
+.mob-navbar-input-border-on {
     border-radius: 7px;
-    border: 2px solid rgb(67, 67, 238);
+    border: 3px solid $poke4;
     transition: all 0.2s ease-in;
 }
 
@@ -100,16 +153,16 @@ $inputWidth: 15rem;
     font-weight: 100;
     font-size: 0.7em;
     background: white;
-    clip-path: polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%);
+    clip-path: polygon(10% 0%, 90% 0%, 100% 100%, 0% 100%);
+
 }
 
-.side-menu-opened {
+.side-menu {
     position: fixed;
     z-index: 99999;
     top: 0;
     margin: 0 auto;
     left: 0rem;
-    width: 12rem;
     height: 100%;
     background-image: linear-gradient(150deg, $poke2 50%, $dark 50%);
     box-shadow: 5px 0px 10px $dark;

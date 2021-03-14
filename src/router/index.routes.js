@@ -40,7 +40,7 @@ const router = async (route) => {
     
     // 1920px WIDTH DEVICES
 
-    if(window.outerWidth >= 601) {
+    if(window.screen.width >= 1280) {
 
         switch(route) {
             
@@ -73,7 +73,7 @@ const router = async (route) => {
         }
     }
     
-    if(window.outerWidth <= 600) {
+    if(window.screen.width <= 1270) {
         switch(route) {
             
             case "":

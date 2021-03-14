@@ -22,12 +22,23 @@
 }
 
 .mob-loader-pokegif img {
+    width: 8rem;
+    height: auto;
+}
+
+.mob-loader-pokegif {
+    bottom: 10%;
     position: fixed;
     z-index: 9999;
-    left: 50%;
-    transform: translate(-50%, 100%);
-    top: 25%;
-    width: 10rem;
-    height: auto;
+    animation: amazingDancing 2s linear infinite alternate-reverse;
+}
+
+@keyframes amazingDancing {
+    from {
+        transform: translateX(-100%);
+    }
+    to {
+        transform: translateX(100%);
+    }
 }
 

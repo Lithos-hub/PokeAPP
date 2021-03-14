@@ -1,6 +1,6 @@
 // Views
 import Home from './home.controller';
-import API from './api.controller';
+import { showCards } from './api.controller';
 import About from './about.controller';
 import notfound from './404.controller';
 
@@ -11,7 +11,7 @@ import Loader from './loader.controller';
 
 // Mobile views
 import Mob_home from './mobileControllers/mob_home.controller';
-import Mob_API from "./mobileControllers/mob_api.controller";
+import { showMobileCards } from "./mobileControllers/mob_api.controller";
 import Mob_About from "./mobileControllers/mob_about.controller";
 
 // Mobile components
@@ -20,7 +20,7 @@ import Mob_Loader from "./mobileControllers/mob_loader.controller.js"
 
 const pages = {
     home: Home,
-    api: API,
+    api: showCards,
     about: About,
     notfound: notfound
 }
@@ -33,7 +33,7 @@ const components = {
 
 const mobile_pages = {
     home: Mob_home,
-    api: Mob_API,
+    api: showMobileCards,
     about: Mob_About,
 }
 

@@ -4,6 +4,18 @@ import "../../components/mobile/navbar/styles.scss";
 import POKEBALL from "../../assets/img/pokeball.png";
 import BRANDLOGO from "../../assets/img/app-logobar.jpg"
 
+
+import {
+    getFirstGen,
+    getSecondGen,
+    getThirdGen,
+    getFourthGen,
+    getFifthGen,
+    getSixthGen,
+    getSeventhGen,
+    getEighthGen
+ } from './mob_api.controller';
+
 export default () => {
     const divElement = document.createElement('div')
     divElement.innerHTML = mob_navbar;
@@ -19,27 +31,63 @@ export default () => {
         input_element.style.display = "block";
     }
 
-    
     const input_html = divElement.querySelector('input')
     const input_label = divElement.querySelector('#input-label');
 
     const sideMenu = divElement.querySelector('.side-menu');
     const menuIcon = divElement.querySelector('#menu-btn')
 
+    const selectMenu = divElement.querySelector('.select-menu');
+    const selectIcon = divElement.querySelector('#select-btn');
+
     const sideMenuContent = divElement.querySelector('.side-menu-content');
     sideMenuContent.style.display = "none";
 
     const sideMenuImg = document.createElement('img');
     sideMenuImg.src = BRANDLOGO;
+
     const brandlogo = divElement.querySelector('.brand-logo');
 
     sideMenuImg.classList.add('side-menu-img')
-
+    
     brandlogo.append(sideMenuImg);
+
+    sideMenu.style.opacity = "0";
+    sideMenu.style.width = "0rem";
     
     menuIcon.addEventListener('click', () => {
-        sideMenu.classList.add('side-menu-opened')
-        sideMenuContent.style.display = "block";
+        if(sideMenu.style.opacity === "0") {
+            sideMenu.style.opacity = "1";
+            sideMenu.style.width = "12rem";
+            sideMenu.style.transition = "all 0.3s ease-in-out";
+            sideMenuContent.style.display = "block";
+        } else {
+            hideSidemenu();
+        }
+    })
+
+    selectMenu.style.display = "none";
+    selectMenu.style.opacity = "0";
+    selectMenu.style.height = "0rem";
+    
+    selectIcon.addEventListener('click', () => {
+        if(selectMenu.style.opacity === "0") {
+            selectMenu.style.display = "block";
+
+            setTimeout(() => {
+            selectMenu.style.opacity = "1";
+            selectMenu.style.height = "15rem";
+            selectMenu.style.transition = "all 0.7s ease-in-out";
+            }, 200)
+            
+        } else {
+            selectMenu.style.opacity = "0";
+            selectMenu.style.height = "0rem";
+            selectMenu.style.transition = "all 0.7s ease-in-out";
+            setTimeout(() => {
+                selectMenu.style.display = "none";
+            }, 1000)
+        }
     })
 
     const poke_img = document.createElement('img');
@@ -51,30 +99,52 @@ export default () => {
 
     input_element.addEventListener('click', () => {
         input_label.classList.toggle('focus-on');
-        input_element.classList.toggle('border-on');
+        input_element.classList.toggle('mob-navbar-input-border-on');
         poke_img.classList.toggle('input-search-img-animation')
         input_html.focus();
 
     })
 
-    main_background.addEventListener('click', () => {
-        input_html.value = '';
-        if(input_label.classList.contains('focus-on')) {
+    window.addEventListener('click', (e) => {
+        if(!selectMenu.contains(e.target) && !divElement.contains(e.target)){
+            selectMenu.style.opacity = "0";
+            selectMenu.style.height = "0rem";
+            selectMenu.style.transition = "all 0.2s ease-in-out";
+            input_element.classList.remove('mob-navbar-input-border-on');
             input_label.classList.remove('focus-on');
-            input_element.classList.remove('border-on');
-            poke_img.classList.remove('input-search-img-animation')
-            input_html.blur();
+            poke_img.classList.remove('input-search-img-animation');
         }
-        hideSidemenu();
+        if(!sideMenu.contains(e.target) && !menuIcon.contains(e.target)) {
+            hideSidemenu();
+        }
+        if(button_first_gen.contains(e.target) ||
+            button_second_gen.contains(e.target) ||
+            button_third_gen.contains(e.target) ||
+            button_fourth_gen.contains(e.target) ||
+            button_fifth_gen.contains(e.target) ||
+            button_sixth_gen.contains(e.target) ||
+            button_seventh_gen.contains(e.target) ||
+            button_eighth_gen.contains(e.target)) 
+           {
+            hideSelectmenu();
+        }
     })
 
     const hideSidemenu = () => {
-        if(sideMenu.classList.contains('side-menu-opened')) {
-            sideMenu.classList.remove('side-menu-opened')
-            sideMenuContent.style.display = "none";
-    
-        }
+        sideMenu.style.opacity = "0";
+        sideMenu.style.width = "0rem";
+        sideMenu.style.transition = "all 0.3s ease-in-out";
     }
+
+    const hideSelectmenu = () => {
+        selectMenu.style.opacity = "0";
+        selectMenu.style.height = "0rem";
+        selectMenu.style.transition = "all 0.7s ease-in-out";
+        setTimeout(() => {
+            selectMenu.style.display = "none";
+        }, 1000)
+    }
+
 
     // TODO - Change this for querySelectorAll (it doesn't work for now)
     const link_app = divElement.querySelector('.side-menu-app-link');
@@ -83,7 +153,23 @@ export default () => {
     const link_about = divElement.querySelector('.side-menu-about-link');
     link_about.addEventListener('click', hideSidemenu)
 
+    const button_first_gen = divElement.querySelector('#mob-btn-gen-1')
+    const button_second_gen = divElement.querySelector('#mob-btn-gen-2')
+    const button_third_gen = divElement.querySelector('#mob-btn-gen-3')
+    const button_fourth_gen = divElement.querySelector('#mob-btn-gen-4')
+    const button_fifth_gen = divElement.querySelector('#mob-btn-gen-5')
+    const button_sixth_gen = divElement.querySelector('#mob-btn-gen-6')
+    const button_seventh_gen = divElement.querySelector('#mob-btn-gen-7')
+    const button_eighth_gen = divElement.querySelector('#mob-btn-gen-8')
 
+    button_first_gen.addEventListener('click', getFirstGen);
+    button_second_gen.addEventListener('click', getSecondGen);
+    button_third_gen.addEventListener('click', getThirdGen);
+    button_fourth_gen.addEventListener('click', getFourthGen);
+    button_fifth_gen.addEventListener('click', getFifthGen);
+    button_sixth_gen.addEventListener('click', getSixthGen);
+    button_seventh_gen.addEventListener('click', getSeventhGen);
+    button_eighth_gen.addEventListener('click', getEighthGen);
 
     return divElement;
 }

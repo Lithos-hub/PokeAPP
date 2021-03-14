@@ -23,8 +23,47 @@ import iconSTEEL from "../../assets/icons/steel.svg";
 import iconWATER from "../../assets/icons/water.svg";
 import noicon from "../../assets/icons/noicon.png";
 
+
+
+// Import components
+import { mobile_components } from "../index.js"
+
+// Loader
+const loaderComponent = document.querySelector("#mobLoaderDIV")
+
+function showLoader() {
+    loaderComponent.appendChild(mobile_components.loader())
+}
+
+function hideLoader() {
+    loaderComponent.innerHTML = '';
+}
+
+
 const begin_first_gen = 1
 const end_fist_gen = 151
+
+const begin_second_gen = 152
+const end_second_gen = 251
+
+const begin_third_gen = 252
+const end_third_gen = 386
+
+const begin_fourth_gen = 387
+const end_fourth_gen = 493
+
+const begin_fifth_gen = 494
+const end_fifth_gen = 649
+
+const begin_sixth_gen = 650
+const end_sixth_gen = 721
+
+const begin_seventh_gen = 722
+const end_seventh_gen = 809
+
+const begin_eighth_gen = 810
+const end_eighth_gen = 893
+
 
 const getPokesByID = async (id) => {
     try {
@@ -44,49 +83,17 @@ const getPokesSpecies = async (name) => {
     }
 }
 
-// Import components
-import { mobile_components } from "../index.js"
+const divElement = document.createElement('div')
+divElement.innerHTML = mob_pokeapi;
 
-// Loader
-const loaderComponent = document.querySelector("#mobLoaderDIV")
+const pokeList = divElement.querySelector('#mob-pokeList');
 
-function showLoader() {
-    loaderComponent.appendChild(mobile_components.loader())
-}
+let pokeArr = [];
 
-function hideLoader() {
-    loaderComponent.innerHTML = '';
-}
+hideLoader();
 
 
-export default () => {
-    const divElement = document.createElement('div')
-    divElement.innerHTML = mob_pokeapi;
-
-    const pokeList = divElement.querySelector('#mob-pokeList');
-
-    let pokeArr = [];
-
-        const getFirstGen = async () => {
-            pokeList.innerHTML = '';
-            pokeArr.length = 0;
-            for(let id = begin_first_gen; id <= end_fist_gen; id++) {
-                const pokes = await getPokesByID(id);
-                pokeArr.push(pokes)
-            }
-            await paint_cards();
-        }
-
-        showLoader();
-
-        getFirstGen();
-        
-
-
-
-        const paint_cards = async () => {
-
-            console.log(pokeArr)
+const showMobileCards = async () => {
         
             for(let pokemon of pokeArr) {
                 let species = await getPokesSpecies(pokemon.name)
@@ -338,15 +345,111 @@ export default () => {
                     </div>
                 `;
         
-            })
-            
-            hideLoader();
+                
+                hideLoader();
+                
+        })
+
+        return divElement;
+ }
         
-            return pokeList;
 
-
-        }
-        
-
-    return divElement;
+const getFirstGen = async() => {
+    showLoader();
+    pokeList.innerHTML = '';
+    pokeArr.length = 0;
+    for(let id = begin_first_gen; id <= end_fist_gen; id++) {
+        const pokes = await getPokesByID(id);
+        pokeArr.push(pokes)
+    }
+    await showMobileCards();
 }
+
+
+const getSecondGen = async () => {
+    showLoader();
+    pokeList.innerHTML = '';
+    pokeArr.length = 0;
+    for(let id = begin_second_gen; id <= end_second_gen; id++) {
+        const pokes = await getPokesByID(id);
+        pokeArr.push(pokes)
+    }
+    await showMobileCards();
+}
+
+const getThirdGen = async () => {
+    showLoader();
+    pokeList.innerHTML = '';
+    pokeArr.length = 0;
+    for(let id = begin_third_gen; id <= end_third_gen; id++) {
+        const pokes = await getPokesByID(id);
+        pokeArr.push(pokes)
+    }
+    await showMobileCards();
+}
+
+const getFourthGen = async () => {
+    showLoader();
+    pokeList.innerHTML = '';
+    pokeArr.length = 0;
+    for(let id = begin_fourth_gen; id <= end_fourth_gen; id++) {
+        const pokes = await getPokesByID(id);
+        pokeArr.push(pokes)
+    }
+    await showMobileCards();
+}
+
+const getFifthGen = async () => {
+    showLoader();
+    pokeList.innerHTML = '';
+    pokeArr.length = 0;
+    for(let id = begin_fifth_gen; id <= end_fifth_gen; id++) {
+        const pokes = await getPokesByID(id);
+        pokeArr.push(pokes)
+    }
+    await showMobileCards();
+}
+
+const getSixthGen = async () => {
+    showLoader();
+    pokeList.innerHTML = '';
+    pokeArr.length = 0;
+    for(let id = begin_sixth_gen; id <= end_sixth_gen; id++) {
+        const pokes = await getPokesByID(id);
+        pokeArr.push(pokes)
+    }
+    await showMobileCards();
+}
+
+const getSeventhGen = async () => {
+    showLoader();
+    pokeList.innerHTML = '';
+    pokeArr.length = 0;
+    for(let id = begin_seventh_gen; id <= end_seventh_gen; id++) {
+        const pokes = await getPokesByID(id);
+        pokeArr.push(pokes)
+    }
+    await showMobileCards();
+}
+
+const getEighthGen = async () => {
+    showLoader();
+    pokeList.innerHTML = '';
+    pokeArr.length = 0;
+    for(let id = begin_eighth_gen; id <= end_eighth_gen; id++) {
+        const pokes = await getPokesByID(id);
+        pokeArr.push(pokes)
+    }
+    await showMobileCards();
+}
+
+export { 
+    showMobileCards,
+    getFirstGen,
+    getSecondGen,
+    getThirdGen,
+    getFourthGen,
+    getFifthGen,
+    getSixthGen,
+    getSeventhGen,
+    getEighthGen, };

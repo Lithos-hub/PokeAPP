@@ -10,6 +10,13 @@ More features will be included soon with new versions.
 
 Changelog
 
+Version 1.9.0 
+
+* The generation selector has been moved to the navigation bar with a drop-down to the left of the search entry.
+* The search input is now available (soon it will be on mobile devices).
+* Each legendary Pokémon now has a special badge on its card.
+* The generation selector now is available on mobile devices.
+
 Version 1.7.0
 
 (Mobile devices)
@@ -36,9 +43,9 @@ Version 1.5.0
 
 Version 1.3.0
 
-* All generations are now availables.
+* All generations now are availables.
 * New loading animation when each get-generation button is clicked.
-* The back side of the cards has now new features: the pokemon sprite, a description and the stats (HP, ATTACK, DEFENSE, SPECIAL-ATTACK, SPECIAL-DEFENSE).
+* The back side of the cards now has new features: the pokemon sprite, a description and the stats (HP, ATTACK, DEFENSE, SPECIAL-ATTACK, SPECIAL-DEFENSE).
 
 Version 1.2.0
 

@@ -46,6 +46,10 @@ import noicon from "../assets/icons/noicon.png";
 // Import components
 import { components } from "./index.js"
 
+
+
+
+
 // Loader
 const loaderComponent = document.querySelector("#loaderDIV")
 
@@ -83,6 +87,15 @@ const end_eighth_gen = 893
 
 
 
+const getPokeByName = async (pokemon_name) => {
+    try {
+        const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon_name}`);
+        return await res.json();     
+    } catch (error) {
+        console.log(error)
+    }
+}
+
 const getPokesByID = async (id) => {
     try {
         const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
@@ -101,155 +114,18 @@ const getPokesSpecies = async (name) => {
     }
 }
 
+const divElement = document.createElement('div');
+divElement.innerHTML = api;
 
-export default async () => {
-    const divElement = document.createElement('div');
-    divElement.innerHTML = api;
-    
-    const pokeList = divElement.querySelector('#pokeList')
+const pokeList = divElement.querySelector('#pokeList')
 
-    const btn_first_gen = divElement.querySelector('#btn-gen-1');
-    const btn_second_gen = divElement.querySelector('#btn-gen-2');
-    const btn_third_gen = divElement.querySelector('#btn-gen-3');
-    const btn_fourth_gen = divElement.querySelector('#btn-gen-4');
-    const btn_fifth_gen = divElement.querySelector('#btn-gen-5');
-    const btn_sixth_gen = divElement.querySelector('#btn-gen-6');
-    const btn_seventh_gen = divElement.querySelector('#btn-gen-7');
-    const btn_eighth_gen = divElement.querySelector('#btn-gen-8');
+const pokeArr = [];
 
 
+const showCards = async () => {
 
-    let pokeArr = [];
-
-        const getFirstGen = async () => {
-            showLoader();
-            pokeList.innerHTML = '';
-            pokeArr.length = 0;
-            for(let id = begin_first_gen; id <= end_fist_gen; id++) {
-                const pokes = await getPokesByID(id);
-                pokeArr.push(pokes)
-            }
-            await paint_cards();
-        }
-
-        const getSecondGeneration = async () => {
-            showLoader();
-            pokeList.innerHTML = '';
-            pokeArr.length = 0;
-            for(let id = begin_second_gen; id <= end_second_gen; id++) {
-                const pokes = await getPokesByID(id);
-                pokeArr.push(pokes)
-            }
-            await paint_cards();
-        }
-        
-        const getThirdGeneration = async () => {
-            showLoader();
-            pokeList.innerHTML = '';
-            pokeArr.length = 0;
-            for(let id = begin_third_gen; id <= end_third_gen; id++) {
-                const pokes = await getPokesByID(id);
-                pokeArr.push(pokes)
-            }
-            await paint_cards();
-        }
-
-        const getFourthGeneration = async () => {
-            showLoader();
-            pokeList.innerHTML = '';
-            pokeArr.length = 0;
-            for(let id = begin_fourth_gen; id <= end_fourth_gen; id++) {
-                const pokes = await getPokesByID(id);
-                pokeArr.push(pokes)
-            }
-            await paint_cards();
-        }
-
-        const getFifthGeneration = async () => {
-            showLoader();
-            pokeList.innerHTML = '';
-            pokeArr.length = 0;
-            for(let id = begin_fifth_gen; id <= end_fifth_gen; id++) {
-                const pokes = await getPokesByID(id);
-                pokeArr.push(pokes)
-            }
-            await paint_cards();
-        }
-
-        const getSixthGeneration = async () => {
-            showLoader();
-            pokeList.innerHTML = '';
-            pokeArr.length = 0;
-            for(let id = begin_sixth_gen; id <= end_sixth_gen; id++) {
-                const pokes = await getPokesByID(id);
-                pokeArr.push(pokes)
-            }
-            await paint_cards();
-        }
-
-        const getSeventhGeneration = async () => {
-            showLoader();
-            pokeList.innerHTML = '';
-            pokeArr.length = 0;
-            for(let id = begin_seventh_gen; id <= end_seventh_gen; id++) {
-                const pokes = await getPokesByID(id);
-                pokeArr.push(pokes)
-            }
-            await paint_cards();
-        }
-
-        const getEighthGeneration = async () => {
-            showLoader();
-            pokeList.innerHTML = '';
-            pokeArr.length = 0;
-            for(let id = begin_eighth_gen; id <= end_eighth_gen; id++) {
-                const pokes = await getPokesByID(id);
-                pokeArr.push(pokes)
-            }
-            await paint_cards();
-        }
-
-    btn_first_gen.addEventListener('click', getFirstGen);
-    btn_second_gen.addEventListener('click', getSecondGeneration);
-    btn_third_gen.addEventListener('click', getThirdGeneration);
-    btn_fourth_gen.addEventListener('click', getFourthGeneration);
-    btn_fifth_gen.addEventListener('click', getFifthGeneration);
-    btn_sixth_gen.addEventListener('click', getSixthGeneration);
-    btn_seventh_gen.addEventListener('click', getSeventhGeneration);
-    btn_eighth_gen.addEventListener('click', getEighthGeneration);
-    
-    // function escapeRegExp(string) {
-    //     return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); 
-    // }
-    // const evoChainsArr = speciesArr.map((specie) => {
-    //     let urlstring = "https://pokeapi.co/api/v2/evolution-chain/"
-    //     let reg = new RegExp(escapeRegExp(urlstring), 'g')
-    //     return { 
-    //         pokename: specie.name, 
-    //         evolves_from: specie.evolves_from_species,
-    //         evochain: specie.evolution_chain.url, 
-    //         evochain_id: parseInt(specie.evolution_chain.url.replace(reg, '').slice(0, -1))
-    //     } 
-    // });
-    
-    // for(let item of evoChainsArr) {
-        
-    //     if(item.evolves_from !== null){
-    //         const last_evo = await getPokesByNAME(item.evolves_from.name)
-    //         evosArr.push(last_evo)
-    //     }
-    // }
-
-    
-    
-
-    
-    const paint_cards = async () => {
-
-    
-        
     console.log(pokeArr)
-
+        
     for(let pokemon of pokeArr) {
         let species = await getPokesSpecies(pokemon.name)
 
@@ -260,6 +136,8 @@ export default async () => {
             pokemon.flavor_text = species.flavor_text_entries[0] !== undefined ? species.flavor_text_entries[0].flavor_text : 'Description no available';
             
             pokemon.evolves_from = species.evolves_from_species !== null ? species.evolves_from_species.name : 'baseform';
+
+            pokemon.is_legendary = species.is_legendary;
         }
     }
 
@@ -483,6 +361,9 @@ export default async () => {
                                         #${poke.id.toString().padStart(3, '0')}
                                     </p>
                                 </div>
+                                <div class="${poke.is_legendary ? 'badge-container' : 'no-badge-container'}">
+                                    <div class="${poke.is_legendary ? 'is-legendary' : 'no-legendary'}"></div>
+                                </div>
                                     <div class="card-img">
                                         <img src="${poke.sprites.other['official-artwork'].front_default}" class="front-img">
                                     </div>
@@ -575,11 +456,128 @@ export default async () => {
 
         })
 
-        return pokeList;
+    
+    return divElement;
+
+}
+
+    const getFirstGen = async() => {
+        showLoader();
+        pokeList.innerHTML = '';
+        pokeArr.length = 0;
+        for(let id = begin_first_gen; id <= end_fist_gen; id++) {
+            const pokes = await getPokesByID(id);
+            pokeArr.push(pokes)
+        }
+        await showCards();
+    }
+
+
+    const getSecondGen = async () => {
+        showLoader();
+        pokeList.innerHTML = '';
+        pokeArr.length = 0;
+        for(let id = begin_second_gen; id <= end_second_gen; id++) {
+            const pokes = await getPokesByID(id);
+            pokeArr.push(pokes)
+        }
+        await showCards();
+    }
+    
+    const getThirdGen = async () => {
+        showLoader();
+        pokeList.innerHTML = '';
+        pokeArr.length = 0;
+        for(let id = begin_third_gen; id <= end_third_gen; id++) {
+            const pokes = await getPokesByID(id);
+            pokeArr.push(pokes)
+        }
+        await showCards();
+    }
+
+    const getFourthGen = async () => {
+        showLoader();
+        pokeList.innerHTML = '';
+        pokeArr.length = 0;
+        for(let id = begin_fourth_gen; id <= end_fourth_gen; id++) {
+            const pokes = await getPokesByID(id);
+            pokeArr.push(pokes)
+        }
+        await showCards();
+    }
+
+    const getFifthGen = async () => {
+        showLoader();
+        pokeList.innerHTML = '';
+        pokeArr.length = 0;
+        for(let id = begin_fifth_gen; id <= end_fifth_gen; id++) {
+            const pokes = await getPokesByID(id);
+            pokeArr.push(pokes)
+        }
+        await showCards();
+    }
+
+    const getSixthGen = async () => {
+        showLoader();
+        pokeList.innerHTML = '';
+        pokeArr.length = 0;
+        for(let id = begin_sixth_gen; id <= end_sixth_gen; id++) {
+            const pokes = await getPokesByID(id);
+            pokeArr.push(pokes)
+        }
+        await showCards();
+    }
+
+    const getSeventhGen = async () => {
+        showLoader();
+        pokeList.innerHTML = '';
+        pokeArr.length = 0;
+        for(let id = begin_seventh_gen; id <= end_seventh_gen; id++) {
+            const pokes = await getPokesByID(id);
+            pokeArr.push(pokes)
+        }
+        await showCards();
+    }
+
+    const getEighthGen = async () => {
+        showLoader();
+        pokeList.innerHTML = '';
+        pokeArr.length = 0;
+        for(let id = begin_eighth_gen; id <= end_eighth_gen; id++) {
+            const pokes = await getPokesByID(id);
+            pokeArr.push(pokes)
+        }
+        await showCards();
+    }
+
+    const searchPokemon = async (pokemon_name) => {
+        try {
+            pokeList.innerHTML = '';
+            pokeArr.length = 0;
+            
+            const query = pokemon_name.toLowerCase().trim();
+            
+            const poke = await getPokeByName(query);
+            pokeArr.push(poke);
+            
+            await showCards();
+        } catch (e) {
+
+            alert("That pokémon doesn't exists!")
+        }
 
     }
 
-    return divElement;
 
 
-};
+export { 
+    showCards, 
+    getFirstGen,
+    getSecondGen,
+    getThirdGen,
+    getFourthGen,
+    getFifthGen,
+    getSixthGen,
+    getSeventhGen,
+    getEighthGen,
+    searchPokemon };

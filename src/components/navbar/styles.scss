@@ -7,6 +7,7 @@
 }
 
 .navbar-brand img {
+    z-index: 9999;
     position: absolute;
     left: 1rem;
     margin: 0;
@@ -35,51 +36,58 @@
     text-align: right;
 }
 
-// ******* MOBILE RESPONSIVE ******* //
-@media only screen and (min-width: 360px) {
-    .navbar {
-        height: 2rem;
-    }
-
-    .navbar ul {
-        color: $mainColor;
-        display: flex;
-        list-style: none;
-        position: relative;
-        margin-left: 4rem;
-    
-        li {
-            position: relative;
-            top: 0.75rem;
-        }
-    
-        li a {
-            margin-left: 0.8rem;
-            color: $primary !important;
-            text-decoration: none;
-    
-            &:hover {
-            border-bottom: 5px solid $tertiary;
-            color: $mainColor !important;
-            }
-    
-        }
-    }
-
-    .navbar-brand img {
-        width: 4rem;
-        height: 4rem;
-        top: 0.5rem;
-    }
-    .navbar-text {
-        font-size: 0.5em;
-        margin-right: 2rem;
-    }
-    .webpack-logo img {
-        width: 2rem;
-        height: 2rem;
-    }
+.navbar-search-input {
+    margin: 0 auto;
+    padding-left: 2rem;
+    align-self: center;
+    text-align: center;
 }
+
+#navbar-input, #navbar-input-label  {
+    cursor: pointer;
+}
+
+
+.label-focus-off {
+    font-family: $mobstyle2;
+    position: absolute;
+    top: 20%;
+    left: 10%;
+    color: gray;
+    transition: all 0.3s ease-in-out;
+}
+
+.label-focus-on {
+    transition: all 1s ease-in-out;
+    color: $dark;
+    left: 70%;
+}
+
+.navbar-input-border-off {
+    border-radius: 5px;
+    border: none;
+    transition: all 0.2s ease-in;
+}
+
+.navbar-input-border-on {
+    border-radius: 7px;
+    border: 2px solid $poke4;
+    transition: all 0.2s ease-in;
+    
+}
+
+.navbar-select-menu {
+    position: absolute;
+    top: 100%;
+    width: 100%;
+    padding: 0.5rem;
+    border-top: 2px solid $dark;
+    background-image: url("../../assets/img/pokedex-background.jpg");
+    background-size: cover;
+    background-position: center;
+    box-shadow: 0px 5px 5px $softDark, 0px 10px 15px $dark;
+}
+
 // ******* LAPTOP RESPONSIVE ******* //
 @media only screen and (min-width: 767px) {
     .navbar {
@@ -89,22 +97,23 @@
     .navbar ul {
         color: $mainColor;
         display: flex;
+        justify-content: space-between;
         list-style: none;
         position: relative;
-        margin-left: 5rem;
+        margin-left: 4rem;
     
-        li {
+        li, .navbar-text {
             position: relative;
-            top: 1rem;
+            top: 0.8rem;
             justify-content: center;
         }
         
         li a {
-            margin-left: 3rem;
+            margin-left: 1.5rem;
             color: $primary !important;
             text-decoration: none;
-            font-size: 1rem;
-            padding: 0.5rem;
+            font-size: 0.75rem;
+            padding: 0.75rem;
             
             &:hover {
                 
@@ -112,7 +121,6 @@
             color: $mainColor !important;
            
             }
-    
         }
     }
 
@@ -129,6 +137,99 @@
         width: 3rem;
         height: 3rem;
     }
+    .navbar-search-input {
+        position: absolute;
+        left: 50%;
+        top: 100%;
+        transform: translate(-50%, -40%);
+    }
+
+    .navbar-select-gen img {
+        width: 1.9rem;
+        height: 1.9rem;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+        border-radius: 5px;
+
+        &:hover {
+            transform: scale(1.2);
+            box-shadow: 0px 0px 5px $poke1;
+        }
+    }
+
+    .navbar-select-gen {
+        position: absolute;
+        left: -0.5rem;
+        top: 0.1rem;
+    }
+
+    
+    #navbar-input {
+        outline: none;
+        margin: 0 auto;
+        width: 20rem;
+        height: 2rem;
+        padding-left: 1rem;
+        border-radius: 5px;
+        box-shadow: 1px 3px 10px $dark;
+        font-size: 0.8em;
+        font-family: $mobstyle2;
+    }
+    
+    .navbar-select-menu {
+        position: absolute;
+        top: 100%;
+        width: 100%;
+        max-height: 10rem;
+        padding: 0.2rem;
+        border-top: 2px solid $dark;
+    
+        .row {
+            margin-bottom: 0.5rem;
+        }
+    
+        h5 {
+            margin-bottom: 1rem;
+            font-size: 1rem;
+            font-family: $mobstyle2;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+        }
+    
+        button {
+            border-radius: 15px;
+            width: 75%;
+            box-shadow: 5px 0px 10px $dark;
+            height: 80%;
+            padding: 0.5rem;
+            border: none;
+            color: $poke4;
+            font-size: 0.8rem;
+            font-family: $mobstyle2;
+            background: $dark;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+            
+            &:hover {
+                transition: all 0.3s ease-in-out;
+                background: white;
+                color: $dark;
+            }
+        }
+
+    }
+    .label-focus-off {
+        top: 15%;
+        left: 12%;
+
+    }
+    
+    .label-focus-on {
+        transition: all 1s ease-in-out;
+        left: 65%;
+    }
+    
 }
 // ******* DESKTOP RESPONSIVE ******* //
 @media only screen and (min-width: 1370px) {
@@ -139,11 +240,12 @@
     .navbar ul {
         color: $mainColor;
         display: flex;
+        justify-content: space-between;
         list-style: none;
         position: relative;
         margin-left: 6rem;
     
-        li {
+        li, .navbar-text {
             position: relative;
             top: 1.5rem;
             justify-content: center;
@@ -165,6 +267,91 @@
     
         }
     }
+
+    .navbar-search-input {
+        position: absolute;
+        left: 50%;
+        top: 100%;
+        transform: translate(-50%, -40%);
+    }
+
+    .navbar-select-gen img {
+        width: 2.5rem;
+        height: 2.5rem;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+        border-radius: 5px;
+
+        &:hover {
+            transform: scale(1.2);
+            box-shadow: 0px 0px 5px $poke1;
+        }
+    }
+
+    .navbar-select-gen {
+        position: absolute;
+        left: -1rem;
+        top: 0;
+    }
+
+    .navbar-select-menu {
+        position: absolute;
+        top: 100%;
+        width: 100%;
+        max-height: 15rem;
+        padding: 0.2rem;
+        border-top: 2px solid $dark;
+
+        .row {
+            margin-bottom: 1rem;
+        }
+    
+        h5 {
+            margin-bottom: 1rem;
+            font-size: 2rem;
+            font-family: $mobstyle2;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+        }
+    
+        button {
+            border-radius: 15px;
+            width: 75%;
+            box-shadow: 5px 0px 10px $dark;
+            height: 100%;
+            padding: 1rem;
+            border: none;
+            color: $poke4;
+            font-size: 1rem;
+            font-family: $mobstyle2;
+            background: $dark;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+            
+            &:hover {
+                transition: all 0.3s ease-in-out;
+                background: white;
+                color: $dark;
+            }
+        }
+    }
+
+    
+
+    #navbar-input {
+        outline: none;
+        margin: 0 auto;
+        width: 25rem;
+        height: 2.5rem;
+        padding-left: 2rem;
+        border-radius: 5px;
+        box-shadow: 1px 3px 10px $dark;
+        font-size: 1em;
+        font-family: $mobstyle2;
+    }
+
+
 
     .navbar-brand img {
         width: 5rem;

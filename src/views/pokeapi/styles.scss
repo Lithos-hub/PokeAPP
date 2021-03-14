@@ -27,22 +27,11 @@ ul {
     outline: none;
     box-shadow: 0px 5px 10px $softDark;
     transition: $transFast;
-    
-
-    &:hover:not(.disabled) {
-        transform: scale(1.1);
-        cursor: pointer;
-    }
-}
-
-.disabled {
-    opacity: 0.3;
 }
 
 .nav-list {
     list-style: none;
 }
-
 
 
 // #1
@@ -99,7 +88,6 @@ ul {
     justify-content: center;
     text-align: center;
     padding: auto;
-    
 }
 
 
@@ -194,6 +182,54 @@ ul {
     div ul {
         width: 100%;
     }
+}
+
+.is-legendary {
+    text-align: center;
+    margin: 0 auto;
+    width: 4rem;
+    height: 4rem;
+    background: url("../../assets/img/legendary-badge.png");
+    background-size: cover;
+    animation: badge_pulse 1s ease-in-out infinite alternate-reverse; 
+}
+
+@keyframes badge_pulse {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(1.15);
+    }
+}
+
+.no-legendary {
+    display: none;
+}
+
+.badge-container {
+    background: linear-gradient(120deg, $poke4, rgb(255, 183, 0), rgb(145, 115, 17));
+    border: 2px solid rgb(255, 183, 0);
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 4.5rem;
+    height: 4.5rem;
+    border-radius: 0px 12px 0px 12px;
+    animation: shine 1s ease-in-out infinite alternate-reverse;
+}
+
+@keyframes shine {
+    from {
+        box-shadow: 0px 0px 0px white;
+    }
+    to {
+        box-shadow: 0px 0px 15px white, 0px 0px 25px $poke4;
+    }
+}
+
+.no-badge-container {
+    display: none;
 }
 
 // ******* LAPTOP RESPONSIVE ******* //
