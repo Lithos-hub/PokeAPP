@@ -82,6 +82,7 @@ const pokeList = divElement.querySelector('#pokeList')
 const pokeArr = [];
 
 const showCards = async () => {
+
         
     for(let pokemon of pokeArr) {
         let species = await getPokesSpecies(pokemon.name)
@@ -465,7 +466,7 @@ const showCards = async () => {
     const getFirstGen = async() => {
 
         showLoader();
-        cleanArr();
+
 
         for(let id = begin_first_gen; id <= end_fist_gen; id++) {
             const pokes = await getPokesByID(id);
@@ -478,7 +479,7 @@ const showCards = async () => {
     const getSecondGen = async () => {
 
         showLoader();    
-        cleanArr();
+
 
         for(let id = begin_second_gen; id <= end_second_gen; id++) {
             const pokes = await getPokesByID(id);
@@ -490,7 +491,7 @@ const showCards = async () => {
     const getThirdGen = async () => {
 
         showLoader();  
-        cleanArr();
+
 
         for(let id = begin_third_gen; id <= end_third_gen; id++) {
             const pokes = await getPokesByID(id);
@@ -502,7 +503,7 @@ const showCards = async () => {
     const getFourthGen = async () => {
 
         showLoader();
-        cleanArr();
+
 
         for(let id = begin_fourth_gen; id <= end_fourth_gen; id++) {
             const pokes = await getPokesByID(id);
@@ -514,7 +515,7 @@ const showCards = async () => {
     const getFifthGen = async () => {
 
         showLoader();
-        cleanArr();
+
 
         for(let id = begin_fifth_gen; id <= end_fifth_gen; id++) {
             const pokes = await getPokesByID(id);
@@ -526,7 +527,7 @@ const showCards = async () => {
     const getSixthGen = async () => {
 
         showLoader();
-        cleanArr();
+
 
         for(let id = begin_sixth_gen; id <= end_sixth_gen; id++) {
             const pokes = await getPokesByID(id);
@@ -538,7 +539,7 @@ const showCards = async () => {
     const getSeventhGen = async () => {
 
         showLoader();
-        cleanArr();
+
 
         for(let id = begin_seventh_gen; id <= end_seventh_gen; id++) {
             const pokes = await getPokesByID(id);
@@ -550,7 +551,7 @@ const showCards = async () => {
     const getEighthGen = async () => {
 
         showLoader();
-        cleanArr();
+
 
         for(let id = begin_eighth_gen; id <= end_eighth_gen; id++) {
             const pokes = await getPokesByID(id);
