@@ -5,8 +5,8 @@ import "../views/home/styles.scss";
 import OAK from "../assets/img/oak.png";
 import LOGO from "../assets/img/pokeapi.png";
 
-const majorVersion = 1
-const minorVersion = 9
+const majorVersion = 2
+const minorVersion = 0
 const patch = 0
 
 const version_data = {

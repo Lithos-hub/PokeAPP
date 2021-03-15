@@ -16,6 +16,7 @@
     color: $dark;
     width: 100%;
     height: 100%;
+    font-family: $style3;
     
 }
 
@@ -35,7 +36,7 @@
 
     @for $i from 1 through 4 {
         #par-#{$i} {
-            margin-right: (70 * $i) * 1px;
+            margin-right: (60 * $i) * 1px;
         }
     }
 }

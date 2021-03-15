@@ -6,6 +6,7 @@
     left: 0px;
     width: 100%;
     height: 100%;
+    font-family: $style3;
 }
 
 .home-secondary-background {
@@ -28,6 +29,7 @@
 }
 
 .go-btn {
+    font-family: $style3;
     background: $tertiary;
     color: white;
     letter-spacing: 5px;
@@ -111,15 +113,19 @@
 }
 // ******* LAPTOP RESPONSIVE ******* //
 @media only screen and (min-width: 767px) {
+
+    .powered-with {
+        font-size: 1.5rem;
+    }
     
     .logo-image img {
         margin: 0 auto;
-        width: 15rem;
+        width: 13rem;
         height: auto;
     }
     
     #home-title {
-        font-size: 3em;
+        font-size: 2em;
         letter-spacing: 5px;
         font-family: $style2;
         animation: slideRight 1.5s ease-out;
@@ -128,8 +134,8 @@
     .oak-image img {
         
         margin: 0 auto;
-        width: 10rem;
-        height: 10rem;
+        width: 8rem;
+        height: 8rem;
         animation: slideUp 2s ease-in-out;
         transition: 1.5s ease-in-out;
     }
@@ -174,7 +180,9 @@
 
 // ******* DESKTOP RESPONSIVE ******* //
 @media only screen and (min-width: 1370px) {
-    
+    .powered-with {
+        font-size: 2rem;
+    }
     
     .logo-image img {
         margin: 0 auto;

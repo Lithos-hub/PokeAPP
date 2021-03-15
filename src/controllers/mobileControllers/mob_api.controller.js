@@ -64,6 +64,14 @@ const end_seventh_gen = 809
 const begin_eighth_gen = 810
 const end_eighth_gen = 893
 
+const getPokeByName = async (pokemon_name) => {
+    try {
+        const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon_name}`);
+        return await res.json();     
+    } catch (error) {
+        console.log(error)
+    }
+}
 
 const getPokesByID = async (id) => {
     try {
@@ -318,7 +326,7 @@ const showMobileCards = async () => {
                 }
                 
                     pokeList.innerHTML += `
-                    <div class="mobile-poke-list-item">
+                    <div class="${pokeArr.length === 1 ? 'mob-individual-list' : 'mobile-poke-list-item'}">
                         <div class="col-3 middle text-left">
                                     <img src="${poke.sprites.other['official-artwork'].front_default}" class="mob-poke-img">
                         </div>
@@ -356,8 +364,9 @@ const showMobileCards = async () => {
 
 const getFirstGen = async() => {
     showLoader();
-    pokeList.innerHTML = '';
-    pokeArr.length = 0;
+    
+    cleanArr();
+
     for(let id = begin_first_gen; id <= end_fist_gen; id++) {
         const pokes = await getPokesByID(id);
         pokeArr.push(pokes)
@@ -368,8 +377,9 @@ const getFirstGen = async() => {
 
 const getSecondGen = async () => {
     showLoader();
-    pokeList.innerHTML = '';
-    pokeArr.length = 0;
+    
+    cleanArr();
+
     for(let id = begin_second_gen; id <= end_second_gen; id++) {
         const pokes = await getPokesByID(id);
         pokeArr.push(pokes)
@@ -379,8 +389,9 @@ const getSecondGen = async () => {
 
 const getThirdGen = async () => {
     showLoader();
-    pokeList.innerHTML = '';
-    pokeArr.length = 0;
+    
+    cleanArr();
+
     for(let id = begin_third_gen; id <= end_third_gen; id++) {
         const pokes = await getPokesByID(id);
         pokeArr.push(pokes)
@@ -390,8 +401,9 @@ const getThirdGen = async () => {
 
 const getFourthGen = async () => {
     showLoader();
-    pokeList.innerHTML = '';
-    pokeArr.length = 0;
+    
+    cleanArr();
+
     for(let id = begin_fourth_gen; id <= end_fourth_gen; id++) {
         const pokes = await getPokesByID(id);
         pokeArr.push(pokes)
@@ -401,8 +413,9 @@ const getFourthGen = async () => {
 
 const getFifthGen = async () => {
     showLoader();
-    pokeList.innerHTML = '';
-    pokeArr.length = 0;
+    
+    cleanArr();
+
     for(let id = begin_fifth_gen; id <= end_fifth_gen; id++) {
         const pokes = await getPokesByID(id);
         pokeArr.push(pokes)
@@ -412,8 +425,9 @@ const getFifthGen = async () => {
 
 const getSixthGen = async () => {
     showLoader();
-    pokeList.innerHTML = '';
-    pokeArr.length = 0;
+    
+    cleanArr();
+
     for(let id = begin_sixth_gen; id <= end_sixth_gen; id++) {
         const pokes = await getPokesByID(id);
         pokeArr.push(pokes)
@@ -423,8 +437,9 @@ const getSixthGen = async () => {
 
 const getSeventhGen = async () => {
     showLoader();
-    pokeList.innerHTML = '';
-    pokeArr.length = 0;
+    
+    cleanArr();
+
     for(let id = begin_seventh_gen; id <= end_seventh_gen; id++) {
         const pokes = await getPokesByID(id);
         pokeArr.push(pokes)
@@ -434,13 +449,45 @@ const getSeventhGen = async () => {
 
 const getEighthGen = async () => {
     showLoader();
-    pokeList.innerHTML = '';
-    pokeArr.length = 0;
+
+    cleanArr();
+    
     for(let id = begin_eighth_gen; id <= end_eighth_gen; id++) {
         const pokes = await getPokesByID(id);
         pokeArr.push(pokes)
     }
     await showMobileCards();
+}
+
+window.addEventListener('hashchange', () => {
+        
+    cleanArr();
+
+})
+
+const searchPokemon = async (pokemon_name) => {
+
+    cleanArr();
+
+    try {
+
+        const query = pokemon_name.toLowerCase().trim();
+        
+        const poke = await getPokeByName(query);
+
+        pokeArr.push(poke);
+        
+        await showMobileCards();
+        
+    } catch (error) {
+        console.log(error)
+        alert("That pokémon doesn't exists!")
+    }
+}
+
+const cleanArr = () => {
+    pokeList.innerHTML = '';
+    pokeArr.length = 0;
 }
 
 export { 
@@ -452,4 +499,6 @@ export {
     getFifthGen,
     getSixthGen,
     getSeventhGen,
-    getEighthGen, };
+    getEighthGen,
+    searchPokemon
+ };

@@ -48,7 +48,8 @@ $inputWidth: 15rem;
     height: 13rem;
     padding: 0.5rem;
     border-top: 2px solid rgb(146, 0, 0);
-    background-image: linear-gradient(150deg, $poke3, rgb(29, 29, 124));
+    background-image: url("../../../assets/img/pokedex-background.jpg");
+    background-size: cover;
     box-shadow: 0px 5px 5px $softDark, 0px 10px 15px $dark;
 
     .row {
@@ -64,7 +65,7 @@ $inputWidth: 15rem;
         letter-spacing: 5px;
     }
 
-    button {
+    .mob-navbar-btn  {
         width: 95%;
         height: 100%;
         padding: 0.5rem;

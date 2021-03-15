@@ -1,12 +1,15 @@
 @import '../../../scss/variables';
 
 .mob-loader {
-    position: relative;
+    position: absolute;
     z-index: 9999;
-    top: 3.5rem;
+    top: 0rem;
+    height: 100%;
+    width: 100%;
     padding-top: 5rem;
     padding-bottom: 5rem;
     background-image: linear-gradient(120deg, $dark 50%, $poke3 50%);
+    font-family: $style1;
 
     h1 {
         font-size: 1.5em;
@@ -27,18 +30,19 @@
 }
 
 .mob-loader-pokegif {
-    bottom: 10%;
+    bottom: 0;
+    left: 30%;
     position: fixed;
-    z-index: 9999;
-    animation: amazingDancing 2s linear infinite alternate-reverse;
+    z-index: 99999;
+    animation: amazingDancing 3s linear infinite alternate-reverse;
 }
 
 @keyframes amazingDancing {
     from {
-        transform: translateX(-100%);
+        transform: translate(-50%);
     }
     to {
-        transform: translateX(100%);
+        transform: translate(50%);
     }
 }
 

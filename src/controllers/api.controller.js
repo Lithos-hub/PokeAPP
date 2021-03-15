@@ -47,20 +47,6 @@ import noicon from "../assets/icons/noicon.png";
 import { components } from "./index.js"
 
 
-
-
-
-// Loader
-const loaderComponent = document.querySelector("#loaderDIV")
-
-function showLoader() {
-    loaderComponent.appendChild(components.loader())
-}
-
-function hideLoader() {
-    loaderComponent.innerHTML = '';
-}
-
 const begin_first_gen = 1
 const end_fist_gen = 151
 
@@ -86,45 +72,16 @@ const begin_eighth_gen = 810
 const end_eighth_gen = 893
 
 
-
-const getPokeByName = async (pokemon_name) => {
-    try {
-        const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon_name}`);
-        return await res.json();     
-    } catch (error) {
-        console.log(error)
-    }
-}
-
-const getPokesByID = async (id) => {
-    try {
-        const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
-        return await res.json();     
-    } catch (error) {
-        console.log(error)
-    }
-}
-
-const getPokesSpecies = async (name) => {
-    try {
-        const res = await fetch(`https://pokeapi.co/api/v2/pokemon-species/${name}`);
-        return await res.json();     
-    } catch (error) {
-        console.log(error)
-    }
-}
-
 const divElement = document.createElement('div');
 divElement.innerHTML = api;
+
+const manualUse = divElement.querySelector('.manual-use');
 
 const pokeList = divElement.querySelector('#pokeList')
 
 const pokeArr = [];
 
-
 const showCards = async () => {
-
-    console.log(pokeArr)
         
     for(let pokemon of pokeArr) {
         let species = await getPokesSpecies(pokemon.name)
@@ -142,6 +99,8 @@ const showCards = async () => {
     }
 
     pokeArr.forEach((poke) => {
+
+        
 
         let background = '';
         let second_background = '';
@@ -351,7 +310,7 @@ const showCards = async () => {
         }
         
             pokeList.innerHTML += `
-            <div class="col col-4 margin-cols">
+            <div class="${pokeArr.length === 1 ? 'individual-card' : 'col col-4 margin-cols'}">
                 <div class="card-wrapper">
                     <div class="card-inner">
 
@@ -461,10 +420,53 @@ const showCards = async () => {
 
 }
 
+    const getPokeByName = async (pokemon_name) => {
+        manualUse.style.display = "none";
+        try {
+            const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon_name}`);
+            return await res.json();     
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+    const getPokesByID = async (id) => {
+        manualUse.style.display = "none";
+        try {
+            const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
+            return await res.json();     
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+    const getPokesSpecies = async (name) => {
+        manualUse.style.display = "none";
+        try {
+            const res = await fetch(`https://pokeapi.co/api/v2/pokemon-species/${name}`);
+            return await res.json();     
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+    // Loader
+    const loaderComponent = document.querySelector("#loaderDIV")
+
+    function showLoader() {
+        manualUse.style.display = "none"
+        loaderComponent.appendChild(components.loader())
+    }
+
+    function hideLoader() {
+        loaderComponent.innerHTML = '';
+    }
+
     const getFirstGen = async() => {
+
         showLoader();
-        pokeList.innerHTML = '';
-        pokeArr.length = 0;
+        cleanArr();
+
         for(let id = begin_first_gen; id <= end_fist_gen; id++) {
             const pokes = await getPokesByID(id);
             pokeArr.push(pokes)
@@ -474,9 +476,10 @@ const showCards = async () => {
 
 
     const getSecondGen = async () => {
-        showLoader();
-        pokeList.innerHTML = '';
-        pokeArr.length = 0;
+
+        showLoader();    
+        cleanArr();
+
         for(let id = begin_second_gen; id <= end_second_gen; id++) {
             const pokes = await getPokesByID(id);
             pokeArr.push(pokes)
@@ -485,9 +488,10 @@ const showCards = async () => {
     }
     
     const getThirdGen = async () => {
-        showLoader();
-        pokeList.innerHTML = '';
-        pokeArr.length = 0;
+
+        showLoader();  
+        cleanArr();
+
         for(let id = begin_third_gen; id <= end_third_gen; id++) {
             const pokes = await getPokesByID(id);
             pokeArr.push(pokes)
@@ -496,9 +500,10 @@ const showCards = async () => {
     }
 
     const getFourthGen = async () => {
+
         showLoader();
-        pokeList.innerHTML = '';
-        pokeArr.length = 0;
+        cleanArr();
+
         for(let id = begin_fourth_gen; id <= end_fourth_gen; id++) {
             const pokes = await getPokesByID(id);
             pokeArr.push(pokes)
@@ -507,9 +512,10 @@ const showCards = async () => {
     }
 
     const getFifthGen = async () => {
+
         showLoader();
-        pokeList.innerHTML = '';
-        pokeArr.length = 0;
+        cleanArr();
+
         for(let id = begin_fifth_gen; id <= end_fifth_gen; id++) {
             const pokes = await getPokesByID(id);
             pokeArr.push(pokes)
@@ -518,9 +524,10 @@ const showCards = async () => {
     }
 
     const getSixthGen = async () => {
+
         showLoader();
-        pokeList.innerHTML = '';
-        pokeArr.length = 0;
+        cleanArr();
+
         for(let id = begin_sixth_gen; id <= end_sixth_gen; id++) {
             const pokes = await getPokesByID(id);
             pokeArr.push(pokes)
@@ -529,9 +536,10 @@ const showCards = async () => {
     }
 
     const getSeventhGen = async () => {
+
         showLoader();
-        pokeList.innerHTML = '';
-        pokeArr.length = 0;
+        cleanArr();
+
         for(let id = begin_seventh_gen; id <= end_seventh_gen; id++) {
             const pokes = await getPokesByID(id);
             pokeArr.push(pokes)
@@ -540,9 +548,10 @@ const showCards = async () => {
     }
 
     const getEighthGen = async () => {
+
         showLoader();
-        pokeList.innerHTML = '';
-        pokeArr.length = 0;
+        cleanArr();
+
         for(let id = begin_eighth_gen; id <= end_eighth_gen; id++) {
             const pokes = await getPokesByID(id);
             pokeArr.push(pokes)
@@ -550,25 +559,37 @@ const showCards = async () => {
         await showCards();
     }
 
+    window.addEventListener('hashchange', () => {
+        if(window.location.hash === "#/app") {
+            manualUse.style.display = "block";
+            cleanArr();
+        }
+    })
+
     const searchPokemon = async (pokemon_name) => {
+
+        cleanArr();
+
         try {
-            pokeList.innerHTML = '';
-            pokeArr.length = 0;
-            
+
             const query = pokemon_name.toLowerCase().trim();
             
             const poke = await getPokeByName(query);
+
             pokeArr.push(poke);
             
             await showCards();
-        } catch (e) {
-
+            
+        } catch (error) {
+            console.log(error)
             alert("That pokémon doesn't exists!")
         }
-
     }
 
-
+    const cleanArr = () => {
+        pokeList.innerHTML = '';
+        pokeArr.length = 0;
+    }
 
 export { 
     showCards, 

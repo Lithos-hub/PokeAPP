@@ -117,7 +117,6 @@ export default () => {
         nav_input_all.style.display = "block";
     }
 
-
     const btn_first_gen = navbarElement.querySelector('#btn-gen-1');
     const btn_second_gen = navbarElement.querySelector('#btn-gen-2');
     const btn_third_gen = navbarElement.querySelector('#btn-gen-3');
@@ -141,18 +140,26 @@ export default () => {
     input_tag.addEventListener('input', (e) => {
         search_query = e.target.value;
     });
-    
-    document.addEventListener('keypress', (e) => {
+
+    navbarElement.addEventListener('keypress', (e) => {
         if(e.key === "Enter") {
             searchPokemon(search_query) 
             input_tag.value = '';
+            search_query = '';
             nav_input_label.classList.remove('navbar-focus-on')
             input_tag.classList.remove('navbar-input-border-on');
             nav_input_label.classList.remove('label-focus-on')
             input_tag.blur();
         }
     });
-                
+
+    window.addEventListener('hashchange', (e) => {
+        if(window.location.hash !== "#/app") {
+            input_tag.value = '';
+            search_query = '';
+        }
+    })
+  
     
     return navbarElement;
 }
