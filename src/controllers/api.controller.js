@@ -584,6 +584,7 @@ const showCards = async () => {
         } catch (error) {
             console.log(error)
             alert("That pokémon doesn't exists!")
+            cleanArr();
         }
     }
 

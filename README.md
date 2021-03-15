@@ -6,9 +6,13 @@ PokéAPP is an app made with Webpack and JavaScript Vanilla to use the PokéAPI 
 
 More features will be included soon with new versions.
 
-//////
+__________________________________________________________________________________
 
 Changelog
+
+Version 2.0.1
+
+* Fixed a bug that occurred in the search system when searching for a Pokémon that does not exist and then clicking on a generation selector button.
 
 Version 2.0.0
 
