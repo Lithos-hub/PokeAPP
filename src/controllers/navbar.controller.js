@@ -139,6 +139,8 @@ export default () => {
 
     input_tag.addEventListener('input', (e) => {
         search_query = e.target.value;
+        searchPokemon(search_query) 
+
     });
 
     navbarElement.addEventListener('keypress', (e) => {

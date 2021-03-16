@@ -19,7 +19,7 @@ import backgroundPOISON from "../assets/img/poison.jpg";
 import backgroundPSYCHIC from "../assets/img/psychic.jpg";
 import backgroundROCK from "../assets/img/rock.jpg";
 import backgroundSTEEL from "../assets/img/steel.jpg";
-import backgroundWATER from "../assets/img/water2.jpg";
+import backgroundWATER from "../assets/img/water.jpg";
 import nobackground from "../assets/img/nobackground.jpg";
 
 // Types icons
@@ -455,6 +455,7 @@ const showCards = async () => {
     const loaderComponent = document.querySelector("#loaderDIV")
 
     function showLoader() {
+        cleanArr();
         manualUse.style.display = "none"
         loaderComponent.appendChild(components.loader())
     }
