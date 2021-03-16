@@ -10,6 +10,10 @@ ________________________________________________________________________________
 
 Changelog
 
+Version 2.0.2
+
+* Fixed an issue with the generation selector.
+
 Version 2.0.1
 
 * Fixed a bug that occurred in the search system when searching for a Pokémon that does not exist and then clicking on a generation selector button.
