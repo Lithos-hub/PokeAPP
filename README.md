@@ -10,6 +10,11 @@ ________________________________________________________________________________
 
 Changelog
 
+Version 2.1.0
+
+* Added an autocomplete dropdown on search system. 
+
+
 Version 2.0.2
 
 * Fixed an issue with the generation selector.
