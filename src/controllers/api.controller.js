@@ -450,15 +450,6 @@ const showCards = async () => {
         }
     }
 
-    const getAllPokesNames = async (id) => {
-        try {
-            const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
-            return await res.json();     
-        } catch (error) {
-            console.log(error)
-        }
-    }
-
     // Loader
     const loaderComponent = document.querySelector("#loaderDIV")
 
@@ -613,4 +604,4 @@ export {
     getSeventhGen,
     getEighthGen,
     searchPokemon,
-    getAllPokesNames };
+    getPokesByID };

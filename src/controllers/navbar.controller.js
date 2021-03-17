@@ -11,14 +11,13 @@ import {
     getSeventhGen,
     getEighthGen,
     searchPokemon,
-    getAllPokesNames
+    getPokesByID
  } from './api.controller';
 
 // Images imports
 import BRAND from "../assets/img/app-logo.png";
 import WEBPACKLOGO from "../assets/img/webpack.png";
 import POKEDEX from "../assets/img/pokedex.png";
-
 
 export default () => {
 
@@ -51,27 +50,6 @@ export default () => {
     const dropdown_container = navbarElement.querySelector('.navbar-input-dropdown');
     dropdown_container.style.display = "none";
 
-    const first_pokemon_id = 1;
-    const last_pokemon_id = 809;
-
-    let names = [];
-
-    const getNames = async () => {
-        for(let id = first_pokemon_id; id <= last_pokemon_id; id++) {
-            const pokes = await getAllPokesNames(id);
-            let pokemon = {
-                name: pokes.name,
-                img: pokes.sprites.other['official-artwork'].front_default
-            }
-            names.push(pokemon);
-        }
-    }
-
-    getNames();    
-    
-    console.log(names)
-
-
     nav_input_container.addEventListener('click', () => {
         nav_input_label.classList.toggle('navbar-focus-on');
         input_tag.classList.toggle('navbar-input-border-on');
@@ -85,6 +63,28 @@ export default () => {
     selectMenu.style.display = "none";
     selectMenu.style.opacity = "0";
     selectMenu.style.height = "0rem";
+
+    const first_pokemon_id = 1;
+    const last_pokemon_id = 809;
+
+    const names = [];
+
+    const getNames = async () => {
+        for(let id = first_pokemon_id; id <= last_pokemon_id; id++) {
+            if(id !== 44){
+                const pokes = await getPokesByID(id);
+                const pokemon = {
+                        name: pokes.name,
+                        img: pokes.sprites.other['official-artwork'].front_default
+                    }
+                    names.push(pokemon);
+            }
+        }
+    }
+
+    getNames();    
+
+    console.log(names)
     
     selectIcon.addEventListener('click', () => {
         if(selectMenu.style.opacity === "0") {
@@ -167,7 +167,6 @@ export default () => {
 
     input_tag.addEventListener('input', (e) => {
         dropdown_query = e.target.value;
-        
         filtered_pokemon = names.filter(poke => poke.name.includes(dropdown_query));
 
         if(input_tag.value) {
@@ -175,20 +174,21 @@ export default () => {
             dropdown_container.innerHTML = '';
 
             for(let pokemon of filtered_pokemon) {
-                dropdown_container.innerHTML += `
-                
-                <div class="navbar-dropdown-item" data-value=${pokemon.name}>
-                    <div class="dropdown-left-col">
-                        <img src="${pokemon.img}" class="dropdown-img">
-                    </div>
-                    <div class="dropdown-right-col">
-                        ${pokemon.name}
-                    </div>
-                </div>
-                
-                `;
 
-            }
+
+                    dropdown_container.innerHTML += `
+                    
+                    <div class="navbar-dropdown-item" data-value=${pokemon !== undefined ? pokemon.name : 'Error from database'}>
+                        <div class="dropdown-left-col">
+                            <img src="${pokemon !== undefined ? pokemon.img : '' }" class="dropdown-img">
+                        </div>
+                        <div class="dropdown-right-col">
+                            ${pokemon !== undefined ? pokemon.name : 'Error from database'}
+                        </div>
+                    </div>
+                    
+                    `;
+                }
 
             if(dropdown_container.hasChildNodes) {
                 for(let item of dropdown_container.children){

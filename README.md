@@ -10,6 +10,10 @@ ________________________________________________________________________________
 
 Changelog
 
+Version 2.1.1
+
+* Fixed an issue with the API call.
+
 Version 2.1.0
 
 * Added an autocomplete dropdown on search system. 
