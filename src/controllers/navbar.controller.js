@@ -10,7 +10,8 @@ import {
     getSixthGen,
     getSeventhGen,
     getEighthGen,
-    searchPokemon
+    searchPokemon,
+    getAllPokesNames
  } from './api.controller';
 
 // Images imports
@@ -30,7 +31,7 @@ export default () => {
     const pokedexLogo = new Image();
     pokedexLogo.src = POKEDEX;
 
-    const navbarElement = document.createElement('div')
+    const navbarElement = document.createElement('div');
     navbarElement.innerHTML = navbar
 
     const brandDiv = navbarElement.querySelector(".navbar-brand");
@@ -43,9 +44,33 @@ export default () => {
 
     const input_tag = navbarElement.querySelector('input');
 
-    const nav_input_all = navbarElement.querySelector('.navbar-search-input')
+    const nav_input_all = navbarElement.querySelector('.navbar-search-input');
     const nav_input_container = navbarElement.querySelector('.navbar-input-container');
-    const nav_input_label = navbarElement.querySelector('.label-focus-off')
+    const nav_input_label = navbarElement.querySelector('.label-focus-off');
+
+    const dropdown_container = navbarElement.querySelector('.navbar-input-dropdown');
+    dropdown_container.style.display = "none";
+
+    const first_pokemon_id = 1;
+    const last_pokemon_id = 809;
+
+    let names = [];
+
+    const getNames = async () => {
+        for(let id = first_pokemon_id; id <= last_pokemon_id; id++) {
+            const pokes = await getAllPokesNames(id);
+            let pokemon = {
+                name: pokes.name,
+                img: pokes.sprites.other['official-artwork'].front_default
+            }
+            names.push(pokemon);
+        }
+    }
+
+    getNames();    
+    
+    console.log(names)
+
 
     nav_input_container.addEventListener('click', () => {
         nav_input_label.classList.toggle('navbar-focus-on');
@@ -89,7 +114,8 @@ export default () => {
             selectMenu.style.transition = "all 0.2s ease-in-out";
             nav_input_label.classList.remove('navbar-focus-on')
             input_tag.classList.remove('navbar-input-border-on');
-            nav_input_label.classList.remove('label-focus-on')
+            nav_input_label.classList.remove('label-focus-on');
+            input_tag.value = '';
         }
         if(btn_first_gen.contains(e.target) ||
             btn_second_gen.contains(e.target) ||
@@ -136,11 +162,58 @@ export default () => {
     btn_eighth_gen.addEventListener('click', getEighthGen);
 
     let search_query = '';
+    let dropdown_query = '';
+    let filtered_pokemon = [];
+
+    input_tag.addEventListener('input', (e) => {
+        dropdown_query = e.target.value;
+        
+        filtered_pokemon = names.filter(poke => poke.name.includes(dropdown_query));
+
+        if(input_tag.value) {
+            dropdown_container.style.display = "block";
+            dropdown_container.innerHTML = '';
+
+            for(let pokemon of filtered_pokemon) {
+                dropdown_container.innerHTML += `
+                
+                <div class="navbar-dropdown-item" data-value=${pokemon.name}>
+                    <div class="dropdown-left-col">
+                        <img src="${pokemon.img}" class="dropdown-img">
+                    </div>
+                    <div class="dropdown-right-col">
+                        ${pokemon.name}
+                    </div>
+                </div>
+                
+                `;
+
+            }
+
+            if(dropdown_container.hasChildNodes) {
+                for(let item of dropdown_container.children){
+                    item.addEventListener('click', () => {
+                        let poke_name = item.getAttribute('data-value');
+                        searchPokemon(poke_name) 
+                        dropdown_container.style.display = "none";
+                        dropdown_container.innerHTML = '';
+                        input_tag.value = '';
+                        input_tag.blur();
+                    })
+                }
+            }
+
+        } else {
+            dropdown_container.style.display = "none";
+            dropdown_container.innerHTML = '';
+        }
+
+        console.log(filtered_pokemon)
+    });
+
 
     input_tag.addEventListener('input', (e) => {
         search_query = e.target.value;
-        searchPokemon(search_query) 
-
     });
 
     navbarElement.addEventListener('keypress', (e) => {
@@ -161,8 +234,8 @@ export default () => {
             search_query = '';
         }
     })
+
   
     
     return navbarElement;
 }
-

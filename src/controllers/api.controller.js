@@ -46,7 +46,6 @@ import noicon from "../assets/icons/noicon.png";
 // Import components
 import { components } from "./index.js"
 
-
 const begin_first_gen = 1
 const end_fist_gen = 151
 
@@ -451,6 +450,15 @@ const showCards = async () => {
         }
     }
 
+    const getAllPokesNames = async (id) => {
+        try {
+            const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
+            return await res.json();     
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
     // Loader
     const loaderComponent = document.querySelector("#loaderDIV")
 
@@ -604,4 +612,5 @@ export {
     getSixthGen,
     getSeventhGen,
     getEighthGen,
-    searchPokemon };
+    searchPokemon,
+    getAllPokesNames };

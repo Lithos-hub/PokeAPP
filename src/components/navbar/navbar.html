@@ -24,18 +24,20 @@
                     <div class="navbar-select-gen">
                     </div>
                     <div class="navbar-input-container">
-                        <input type="text" name="searchPokemonInput" id="navbar-input" class="navbar-input-border-off">
+                        <input type="text" name="searchPokemonInput" id="navbar-input" class="navbar-input-border-off" autocomplete="off">
                         <label id="navbar-input-label" class="label-focus-off">Search a Pokémon</label>
+                        <div class="navbar-input-dropdown"></div>
                     </div>
+                </div>
             </div>
-        </div>
-        <div>
+            <div>
                 <div class="navbar-text">
                     Made with <i class="fas fa-heart"></i>, pure <span class="javascript--text js">JS</span> and
                 </div>
-        </div>
-    </ul>
-</div>
+            </div>
+        </ul>
+    </div>
+
 <div class="navbar-select-menu">
     <div class="navbar-select-menu-content">
     <h5>Select a generation</h5>
@@ -48,16 +50,14 @@
                 <button type="button" id="btn-gen-3" class="navbar-btn">3rd gen</button>
                 
                 <button type="button" id="btn-gen-4" class="navbar-btn">4th gen</button>
-                
-                
-                
-                <button type="button" id="btn-gen-5" class="navbar-btn">4th gen</button>
+
+                <button type="button" id="btn-gen-5" class="navbar-btn">5th gen</button>
                 
                 <button type="button" id="btn-gen-6" class="navbar-btn">6th gen</button>
                 
                 <button type="button" id="btn-gen-7" class="navbar-btn">7th gen</button>
                 
-                <button type="button" id="btn-gen-8" class="navbar-btn">8th gen</button>
+                <button type="button" disabled id="btn-gen-8" class="navbar-btn disabled">8th gen <span class="soon-txt-btn">(soon)</span></button>
             </div>
         </div>
     </div>
