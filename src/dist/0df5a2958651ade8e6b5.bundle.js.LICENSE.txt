@@ -1,0 +1,1 @@
+//! The API call get an error with the Pokémon with ID 44 (only with that), so I' had to skip it out of the loop. I'll fix this in the future.

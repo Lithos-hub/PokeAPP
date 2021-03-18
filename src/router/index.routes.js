@@ -32,8 +32,6 @@ function hideMobileComponents(){
     mobNavbarComponent.innerHTML = ''; 
 }
 
-
-
 const router = async (route) => {
     content.innerHTML = '';
     mob_content.innerHTML = '';

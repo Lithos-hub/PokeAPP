@@ -471,15 +471,10 @@ const searchPokemon = async (pokemon_name) => {
     cleanArr();
 
     try {
-
         const query = pokemon_name.toLowerCase().trim();
-        
         const poke = await getPokeByName(query);
-
         pokeArr.push(poke);
-        
         await showMobileCards();
-        
     } catch (error) {
         console.log(error)
         alert("That pokémon doesn't exists!")

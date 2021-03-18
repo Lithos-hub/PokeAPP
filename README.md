@@ -10,6 +10,10 @@ ________________________________________________________________________________
 
 Changelog
 
+Version 2.1.3
+
+* Refactored code and improvements in the Navbar component (all devices).
+
 Version 2.1.2
 
 * Fixed some bugs in general.
