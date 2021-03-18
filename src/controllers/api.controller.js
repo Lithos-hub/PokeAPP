@@ -76,6 +76,8 @@ divElement.innerHTML = api;
 
 const manualUse = divElement.querySelector('.manual-use');
 
+manualUse.style.display = "block";
+
 const pokeList = divElement.querySelector('#pokeList')
 
 const pokeArr = [];
@@ -421,7 +423,7 @@ const showCards = async () => {
 }
 
     const getPokeByName = async (pokemon_name) => {
-        manualUse.style.display = "none";
+
         try {
             const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon_name}`);
             return await res.json();     
@@ -431,17 +433,17 @@ const showCards = async () => {
     }
 
     const getPokesByID = async (id) => {
-        manualUse.style.display = "none";
-        try {
-            const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
-            return await res.json();     
-        } catch (error) {
-            console.log(error)
-        }
+
+            try {
+                const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
+                return await res.json();     
+            } catch (error) {
+                console.log(error)
+            }
     }
 
     const getPokesSpecies = async (name) => {
-        manualUse.style.display = "none";
+
         try {
             const res = await fetch(`https://pokeapi.co/api/v2/pokemon-species/${name}`);
             return await res.json();     
@@ -463,14 +465,15 @@ const showCards = async () => {
         loaderComponent.innerHTML = '';
     }
 
-    const getFirstGen = async() => {
+    const getFirstGen = async () => {
 
         showLoader();
 
-
         for(let id = begin_first_gen; id <= end_fist_gen; id++) {
-            const pokes = await getPokesByID(id);
-            pokeArr.push(pokes)
+            if(id !== 44) {
+                const pokes = await getPokesByID(id);
+                pokeArr.push(pokes)
+            }
         }
         await showCards();
     }

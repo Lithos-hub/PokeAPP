@@ -71,6 +71,7 @@ export default () => {
 
     const getNames = async () => {
         for(let id = first_pokemon_id; id <= last_pokemon_id; id++) {
+            //! The API call get an error with the Pokémon with ID 44 (only with that), so I' had to skip it out of the loop. I'll fix this in the future.
             if(id !== 44){
                 const pokes = await getPokesByID(id);
                 const pokemon = {
@@ -84,7 +85,6 @@ export default () => {
 
     getNames();    
 
-    console.log(names)
     
     selectIcon.addEventListener('click', () => {
         if(selectMenu.style.opacity === "0") {

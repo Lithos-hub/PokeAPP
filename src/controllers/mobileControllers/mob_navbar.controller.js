@@ -182,7 +182,7 @@ export default () => {
     mobNavbarElement.addEventListener('keypress', (e) => {
         if(e.key === "Enter") {
             searchPokemon(search_query) 
-            console.log(search_query)
+    
             input_html.value = '';
             search_query = '';
             input_label.classList.remove('navbar-focus-on')
@@ -196,9 +196,8 @@ export default () => {
         if(window.location.hash !== "#/app") {
             input_html.value = '';
             search_query = '';
-            console.log(window.location.hash)
         }
-        console.log(search_query)
+
     })
   
 

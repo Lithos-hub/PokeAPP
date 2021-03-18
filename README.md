@@ -10,6 +10,11 @@ ________________________________________________________________________________
 
 Changelog
 
+Version 2.1.2
+
+* Fixed some bugs in general.
+* Responsive view improved.
+
 Version 2.1.1
 
 * Fixed an issue with the API call.

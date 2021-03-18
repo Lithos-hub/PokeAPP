@@ -368,8 +368,10 @@ const getFirstGen = async() => {
     cleanArr();
 
     for(let id = begin_first_gen; id <= end_fist_gen; id++) {
-        const pokes = await getPokesByID(id);
-        pokeArr.push(pokes)
+        if(id !== 44) {
+            const pokes = await getPokesByID(id);
+            pokeArr.push(pokes)
+        }
     }
     await showMobileCards();
 }
@@ -460,9 +462,8 @@ const getEighthGen = async () => {
 }
 
 window.addEventListener('hashchange', () => {
-        
+    hideLoader();
     cleanArr();
-
 })
 
 const searchPokemon = async (pokemon_name) => {
@@ -489,6 +490,7 @@ const cleanArr = () => {
     pokeList.innerHTML = '';
     pokeArr.length = 0;
 }
+
 
 export { 
     showMobileCards,

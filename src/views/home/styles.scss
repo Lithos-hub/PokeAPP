@@ -48,69 +48,6 @@
     }
 }
 
-// ******* MOBILE RESPONSIVE ******* //
-@media only screen and (min-width: 360px) {
-    .logo-image img {
-        margin: 0 auto;
-        width: 8rem;
-        height: auto;
-    }
-    
-    #home-title {
-        font-size: 1.5em;
-        letter-spacing: 2px;
-        font-family: $style2;
-        animation: slideRight 1.5s ease-out;
-    }
-    
-    .oak-image img {
-        
-        margin: 0 auto;
-        width: 10rem;
-        height: 10rem;
-        animation: slideUp 2s ease-in-out;
-        transition: 1.5s ease-in-out;
-    }
-    
-    .go-btn {
-        width: 5rem;
-        height: 2rem;
-        font-size: 0.8rem;
-    }
-    
-    .dialog {
-        position: absolute;
-        left: 50%;
-        padding: 0;
-        margin: 0 auto;
-    }
-    
-    .poke-dialog {
-        border-radius: 10%;
-        position: relative;
-        margin-top: 1rem;
-        left: -50%;
-        width: 18rem;
-        height: 6rem;
-        background-image: url("../../assets/img/pokedialog.png");
-        background-size: 100%;
-        background-position: center;
-        background-repeat: no-repeat;
-        z-index: 999;
-    }
-    
-    .poke-dialog-text {
-        font-size: 0.8em;
-        position: absolute;
-        top: 20%;
-        left: 10%;
-        width: 80%;
-        text-align: left;
-        font-family: 'DotGothic16', sans-serif;
-    }
-    
-
-}
 // ******* LAPTOP RESPONSIVE ******* //
 @media only screen and (min-width: 767px) {
 
@@ -186,12 +123,12 @@
     
     .logo-image img {
         margin: 0 auto;
-        width: 20rem;
+        width: 15rem;
         height: auto;
     }
     
     #home-title {
-        font-size: 4em;
+        font-size: 3em;
         letter-spacing: 5px;
         font-family: $style2;
         animation: slideRight 1.5s ease-out;
@@ -200,8 +137,8 @@
     .oak-image img {
         
         margin: 0 auto;
-        width: 15rem;
-        height: 15rem;
+        width: 12rem;
+        height: 12rem;
         animation: slideUp 2s ease-in-out;
         transition: 1.5s ease-in-out;
     }
@@ -223,7 +160,7 @@
         position: relative;
         margin-top: 1rem;
         left: -50%;
-        width: 40rem;
+        width: 35rem;
         height: 12.5rem;
         background-image: url("../../assets/img/pokedialog.png");
         background-size: 100%;
@@ -233,7 +170,7 @@
     }
     
     .poke-dialog-text {
-        font-size: 1.8em;
+        font-size: 1.6em;
         position: absolute;
         top: 20%;
         left: 10%;

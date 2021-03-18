@@ -20,10 +20,6 @@
     
 }
 
-
-// ******* MOBILE RESPONSIVE ******* //
-@media only screen and (min-width: 360px) {
-}
 // ******* LAPTOP RESPONSIVE ******* //
 @media only screen and (min-width: 767px) {
     .about-list {
@@ -44,7 +40,7 @@
 // ******* DESKTOP RESPONSIVE ******* //
 @media only screen and (min-width: 1370px) {
     .about-list {
-        font-size: 1.5rem;
+        font-size: 1.3rem;
         p {
             margin-top: 3rem;
             margin-bottom: 3rem;
@@ -53,7 +49,7 @@
 
     @for $i from 1 through 4 {
         #par-#{$i} {
-            margin-right: (100 * $i) * 1px;
+            margin-right: (120 * $i) * 1px;
         }
     }
 }
