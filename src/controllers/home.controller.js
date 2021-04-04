@@ -7,7 +7,7 @@ import LOGO from "../assets/img/pokeapi.png";
 
 const majorVersion = 2
 const minorVersion = 1
-const patch = 3
+const patch = 4
 
 const version_data = {
     major: majorVersion,

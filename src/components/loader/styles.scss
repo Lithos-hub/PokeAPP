@@ -1,147 +1,299 @@
 @import '../../scss/variables';
 
-.loader-container {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    left: 50%;
-    top: 100%;
-    transform: translate(-50%, -50%);
-    font-family: $style1;
-}
-
-.inner-container {
-    width: 100%;
-    height: 100%;
-    margin: 0 auto;
-    position: relative;
-    justify-content: center;
-    justify-items: center;
-    text-align: center;
-}
-
-h1 {
-    color: $dark;
-    padding-bottom: 2rem;
-    font-weight: 100;
-    text-align: center;
-    letter-spacing: 5px;
-    font-size: 2em;
-    margin: 0 auto;
-}
-
-.small {
-    color: $poke3;
-    font-size: 0.5em;
-    letter-spacing: 0px;
-}
-
-.spinner-a{
-    position: absolute;
-    justify-self: center;
-    top: 0;
-    animation: orbit_A 2s ease-in-out infinite;
-}
-.spinner-b{
-    position: absolute;
-    justify-self: center;
-    top: 0;
-    animation: orbit_B 2s ease-in-out infinite;
-}
-.spinner-c{
-    position: absolute;
-    justify-self: center;
-    top: 0;
-    animation: orbit_C 2s ease-in-out infinite;
-}
-.spinner-d{
-    position: absolute;
-    justify-self: center;
-    top: 0;
-    animation: orbit_D 2s ease-in-out infinite;
-}
-
-@keyframes orbit_A{
-    from { transform: rotate(-90deg) translateX(250px) rotate(0deg); }
-    to   { transform: rotate(270deg) translateX(250px) rotate(-360deg); }
-}
-@keyframes orbit_B{
-    from { transform: rotate(0deg) translateX(250px) rotate(0deg); }
-    to   { transform: rotate(360deg) translateX(250px) rotate(-360deg); }
-}
-@keyframes orbit_C{
-    from { transform: rotate(90deg) translateX(250px) rotate(0deg); }
-    to   { transform: rotate(450deg) translateX(250px) rotate(-360deg); }
-}
-@keyframes orbit_D{
-    from { transform: rotate(180deg) translateX(250px) rotate(0deg); }
-    to   { transform: rotate(540deg) translateX(250px) rotate(-360deg); }
-}
-
-
-
-
-.spinner img {
-    width: 3em;
-    height: 3em;
-    animation: rotate 2s ease-in-out infinite alternate-reverse;
-}
-
-@keyframes rotate {
-    from {
-        transform: rotate(0deg)
+// ******* LAPTOP RESPONSIVE ******* //
+@media only screen and (min-width: 767px) {
+    .loader-container {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        left: 50%;
+        top: 100%;
+        transform: translate(-50%, -50%);
+        font-family: $style1;
     }
-    to {
-        transform: rotate(360deg)
+    
+    .inner-container {
+        width: 100%;
+        height: 100%;
+        margin: 0 auto;
+        position: relative;
+        justify-content: center;
+        justify-items: center;
+        text-align: center;
+    }
+    
+    h1 {
+        color: $dark;
+        padding-bottom: 2rem;
+        font-weight: 100;
+        text-align: center;
+        letter-spacing: 5px;
+        font-size: 1em;
+        margin: 0 auto;
+    }
+    
+    .small {
+        color: $poke3;
+        font-size: 0.5em;
+        letter-spacing: 0px;
+    }
+    
+    .spinner-a{
+        position: absolute;
+        justify-self: center;
+        top: 0;
+        animation: orbit_A 2s ease-in-out infinite;
+    }
+    .spinner-b{
+        position: absolute;
+        justify-self: center;
+        top: 0;
+        animation: orbit_B 2s ease-in-out infinite;
+    }
+    .spinner-c{
+        position: absolute;
+        justify-self: center;
+        top: 0;
+        animation: orbit_C 2s ease-in-out infinite;
+    }
+    .spinner-d{
+        position: absolute;
+        justify-self: center;
+        top: 0;
+        animation: orbit_D 2s ease-in-out infinite;
+    }
+    
+    @keyframes orbit_A{
+        from { transform: rotate(-90deg) translateX(150px) rotate(0deg); }
+        to   { transform: rotate(270deg) translateX(150px) rotate(-360deg); }
+    }
+    @keyframes orbit_B{
+        from { transform: rotate(0deg) translateX(150px) rotate(0deg); }
+        to   { transform: rotate(360deg) translateX(150px) rotate(-360deg); }
+    }
+    @keyframes orbit_C{
+        from { transform: rotate(90deg) translateX(150px) rotate(0deg); }
+        to   { transform: rotate(450deg) translateX(150px) rotate(-360deg); }
+    }
+    @keyframes orbit_D{
+        from { transform: rotate(180deg) translateX(150px) rotate(0deg); }
+        to   { transform: rotate(540deg) translateX(150px) rotate(-360deg); }
+    }
+    
+    
+    
+    
+    .spinner img {
+        width: 2em;
+        height: 2em;
+        animation: rotate 2s ease-in-out infinite alternate-reverse;
+    }
+    
+    @keyframes rotate {
+        from {
+            transform: rotate(0deg)
+        }
+        to {
+            transform: rotate(360deg)
+        }
+    }
+    
+    .spinners-row {
+        margin: 0 auto;
+        justify-content: center;
+    }
+    
+    .pikachu-flying img {
+        position: fixed;
+        width: 70px;
+        height: auto;
+        animation: flying 20s linear infinite;
+    
+    }
+    
+    @keyframes flying {
+        0% {
+            transform: translate(-100px, 50px)
+        }
+        10% {
+            transform: translate(100px, 100px)
+        }
+        20% {
+            transform: translate(300px, 150px)
+        }
+        30% {
+            transform: translate(500px, 100px)
+        }
+        40% {
+            transform: translate(700px, 50px)
+        }
+        50% {
+            transform: translate(900px, 100px)
+        }
+        60% {
+            transform: translate(1100px, 150px)
+        }
+        70% {
+            transform: translate(1300px, 200px)
+        }
+        80% {
+            transform: translate(1500px, 150px)
+        }
+        90% {
+            transform: translate(1700px, 200px)
+        }
+        100% {
+            transform: translate(1900px, 250px)
+        }
+    
     }
 }
 
-.spinners-row {
-    margin: 0 auto;
-    justify-content: center;
-}
-
-.pikachu-flying img {
-    position: fixed;
-    width: 100px;
-    height: auto;
-    animation: flying 20s linear infinite;
-
-}
-
-@keyframes flying {
-    0% {
-        transform: translate(-100px, 50px)
+// ******* DESKTOP RESPONSIVE ******* //
+@media only screen and (min-width: 1370px) {
+    .loader-container {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        left: 50%;
+        top: 100%;
+        transform: translate(-50%, -50%);
+        font-family: $style1;
     }
-    10% {
-        transform: translate(100px, 100px)
+    
+    .inner-container {
+        width: 100%;
+        height: 100%;
+        margin: 0 auto;
+        position: relative;
+        justify-content: center;
+        justify-items: center;
+        text-align: center;
     }
-    20% {
-        transform: translate(300px, 150px)
+    
+    h1 {
+        color: $dark;
+        padding-bottom: 2rem;
+        font-weight: 100;
+        text-align: center;
+        letter-spacing: 5px;
+        font-size: 2em;
+        margin: 0 auto;
     }
-    30% {
-        transform: translate(500px, 100px)
+    
+    .small {
+        color: $poke3;
+        font-size: 0.5em;
+        letter-spacing: 0px;
     }
-    40% {
-        transform: translate(700px, 50px)
+    
+    .spinner-a{
+        position: absolute;
+        justify-self: center;
+        top: 0;
+        animation: orbit_A 2s ease-in-out infinite;
     }
-    50% {
-        transform: translate(900px, 100px)
+    .spinner-b{
+        position: absolute;
+        justify-self: center;
+        top: 0;
+        animation: orbit_B 2s ease-in-out infinite;
     }
-    60% {
-        transform: translate(1100px, 150px)
+    .spinner-c{
+        position: absolute;
+        justify-self: center;
+        top: 0;
+        animation: orbit_C 2s ease-in-out infinite;
     }
-    70% {
-        transform: translate(1300px, 200px)
+    .spinner-d{
+        position: absolute;
+        justify-self: center;
+        top: 0;
+        animation: orbit_D 2s ease-in-out infinite;
     }
-    80% {
-        transform: translate(1500px, 150px)
+    
+    @keyframes orbit_A{
+        from { transform: rotate(-90deg) translateX(250px) rotate(0deg); }
+        to   { transform: rotate(270deg) translateX(250px) rotate(-360deg); }
     }
-    90% {
-        transform: translate(1700px, 200px)
+    @keyframes orbit_B{
+        from { transform: rotate(0deg) translateX(250px) rotate(0deg); }
+        to   { transform: rotate(360deg) translateX(250px) rotate(-360deg); }
     }
-    100% {
-        transform: translate(1900px, 250px)
+    @keyframes orbit_C{
+        from { transform: rotate(90deg) translateX(250px) rotate(0deg); }
+        to   { transform: rotate(450deg) translateX(250px) rotate(-360deg); }
     }
-
+    @keyframes orbit_D{
+        from { transform: rotate(180deg) translateX(250px) rotate(0deg); }
+        to   { transform: rotate(540deg) translateX(250px) rotate(-360deg); }
+    }
+    
+    
+    
+    
+    .spinner img {
+        width: 3em;
+        height: 3em;
+        animation: rotate 2s ease-in-out infinite alternate-reverse;
+    }
+    
+    @keyframes rotate {
+        from {
+            transform: rotate(0deg)
+        }
+        to {
+            transform: rotate(360deg)
+        }
+    }
+    
+    .spinners-row {
+        margin: 0 auto;
+        justify-content: center;
+    }
+    
+    .pikachu-flying img {
+        position: fixed;
+        width: 100px;
+        height: auto;
+        animation: flying 20s linear infinite;
+    
+    }
+    
+    @keyframes flying {
+        0% {
+            transform: translate(-100px, 50px)
+        }
+        10% {
+            transform: translate(100px, 100px)
+        }
+        20% {
+            transform: translate(300px, 150px)
+        }
+        30% {
+            transform: translate(500px, 100px)
+        }
+        40% {
+            transform: translate(700px, 50px)
+        }
+        50% {
+            transform: translate(900px, 100px)
+        }
+        60% {
+            transform: translate(1100px, 150px)
+        }
+        70% {
+            transform: translate(1300px, 200px)
+        }
+        80% {
+            transform: translate(1500px, 150px)
+        }
+        90% {
+            transform: translate(1700px, 200px)
+        }
+        100% {
+            transform: translate(1900px, 250px)
+        }
+    
+    }
 }
